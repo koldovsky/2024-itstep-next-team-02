@@ -1,4 +1,4 @@
-// https://www.codewars.com/kata/56f935002e6c0d55fa000d92
+// https://www.codewars.com/kata/fun-with-es6-classes-number-2-animals-and-inheritance/train/javascript
 
 class Shark extends Animal {
   constructor(name, age, status) {
