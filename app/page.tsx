@@ -1,4 +1,5 @@
-import FlashSale from "./components/flashSales/flashsale";
+
+import FlashSale from "./components/flashSales/FlashSale";
 import Slider from "./components/sliderOnHeader/Slider";
 
 function Home() {
