@@ -4,7 +4,6 @@ import Vector from "../../../public/images/vector.png";
 import Heart from '../../../public/images/heart.png'
 import Cart from '../../../public/images/cart.png'
 import Link from "next/link";
-import Home from "@/app/page";
 
 const Header = () => {
   return (
