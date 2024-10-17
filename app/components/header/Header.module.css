@@ -63,4 +63,41 @@
 
 .flex {
     display: flex;
+    align-items: center;
+}
+
+.nuvButonsContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+}
+
+.inputContainer{
+    display: flex;
+    align-items: center;
+    border: 2px solid white;
+    border-radius: 7px;
+    padding: 10px 20px;
+    background-color: #F5F5F5; 
+    width: 240px;
+
+}
+
+.inputSearhFooter{
+    border: none; 
+    background: none; 
+    color: white; 
+    font-size: 16px; 
+    outline: none; 
+}
+
+.search{
+    margin-left: 5px;
+    width: 20px;
+    height: 20px;
+}
+
+.emailButton{
+    width: 20px;
+    height: 20px;
 }

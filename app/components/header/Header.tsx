@@ -3,8 +3,9 @@ import Image from "next/image";
 import Vector from "../../../public/images/vector.png";
 import Heart from '../../../public/images/heart.png'
 import Cart from '../../../public/images/cart.png'
+import Search from '../../../public/images/search.png'
 import Link from "next/link";
-import Home from "@/app/page";
+
 
 const Header = () => {
   return (
@@ -23,12 +24,19 @@ const Header = () => {
       <div className={styles.container}>
         <div className={styles.navBarContainer}>
           <div className={styles.brandName}>Exclusive</div>
-          <div>Home</div>
-          <div>About</div>
-          <div>Contact</div>
-          <div>Sign Up</div>
+          <div className={styles.nuvButonsContainer}>
+            <Link href = "">Home</Link>
+            <Link href = "">About</Link>
+            <Link href = "">Contact</Link>
+            <Link href = "">Sign Up</Link>
+          </div>
           <div className={styles.flex}>
-            <input type="text" placeholder="What are you looking for?" />
+            <div className={styles.inputContainer}>
+              <input className={styles.inputSearhFooter} type="text" placeholder="What are you looking for?" />
+              <button type="submit" className={styles.emailButton}>
+              <Image className={styles.search} src={Search} alt="Search" />
+              </button>
+            </div>
             <Image className={styles.icons} src={Heart} alt="heart"></Image>
             <Image className={styles.icons} src={Cart} alt="cart"></Image>
           </div>
