@@ -186,3 +186,10 @@
 }
 
 
+@media (max-width: 1430px){
+    .containerSocialMedia{
+        display: flex;
+        margin-top: 10px;
+        max-width: 293px;
+    }
+}
