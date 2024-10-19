@@ -1,7 +1,10 @@
-import Slider from "./components/sliderOnHeader/Slider";
+// pages/index.tsx
+import KeenSlider from './components/sliderOnHeader/Slider';
 
-function Home() {
-  return <div><Slider /></div>;
+export default function Home() {
+  return (
+    <div>
+      <KeenSlider />
+    </div>
+  );
 }
-
-export default Home;

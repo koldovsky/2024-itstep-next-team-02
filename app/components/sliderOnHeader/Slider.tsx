@@ -1,14 +1,122 @@
-import React from "react";
-import Phone from "../../../public/images/phone.png";
+// components/KeenSlider.tsx
+"use client";
+import React, { useState } from "react"
+import styles from "./Slider.module.css";
+import { useKeenSlider, KeenSliderPlugin } from "keen-slider/react"
+import "keen-slider/keen-slider.min.css"
 import Image from "next/image";
-import styles from './Slider.module.css'
+import Phone from '../../../public/images/phone.png'
 
-const Slider = () => {
+const AdaptiveHeight: KeenSliderPlugin = (slider) => {
+  function updateHeight() {
+    slider.container.style.height =
+      slider.slides[slider.track.details.rel].offsetHeight + "px"
+  }
+  slider.on("created", updateHeight)
+  slider.on("slideChanged", updateHeight)
+}
+
+export default function App() {
+  const [currentSlide, setCurrentSlide] = React.useState(0)
+  const [loaded, setLoaded] = useState(false)
+  const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>(
+    {
+      initial: 0,
+      slideChanged(s) {
+        setCurrentSlide(s.track.details.rel)
+      },
+      created() {
+        setLoaded(true)
+      },
+    },
+    [AdaptiveHeight]
+  )
+
   return (
-    <div>
-      <Image className={styles.image} src={Phone} alt="phone"></Image>
+    <>
+    <div className={styles.containForSlider}>
+      <div className={styles.navigationWrapper}>
+        <div ref={sliderRef} className={`${styles.keenSlider} keen-slider `}>
+          <div className={`${styles.keenSlider__slide} ${styles.numberSlide1} keen-slider__slide number-slide1`}>
+            <Image className={styles.icons} src={Phone} alt="cart"></Image>
+          </div>
+          <div className={`${styles.keenSlider__slide} ${styles.numberSlide2} keen-slider__slide number-slide2`}>
+            <Image className={styles.icons} src={Phone} alt="cart"></Image>
+          </div>
+          <div className={`${styles.keenSlider__slide} ${styles.numberSlide3} keen-slider__slide number-slide3`}>
+            <Image className={styles.icons} src={Phone} alt="cart"></Image>
+          </div>
+          <div className={`${styles.keenSlider__slide} ${styles.numberSlide4} keen-slider__slide number-slide4`}>
+            <Image className={styles.icons} src={Phone} alt="cart"></Image>
+          </div>
+          <div className={`${styles.keenSlider__slide} ${styles.numberSlide5} keen-slider__slide number-slide5`}>
+            <Image className={styles.icons} src={Phone} alt="cart"></Image>
+          </div>
+          <div className={`${styles.keenSlider__slide} ${styles.numberSlide6} keen-slider__slide number-slide6`}>
+            <Image className={styles.icons} src={Phone} alt="cart"></Image>
+          </div>
+        </div>
+        {loaded && instanceRef.current && (
+          <>
+            <Arrow
+              left
+              onClick={(e: any) =>
+                e.stopPropagation() || instanceRef.current?.prev()
+              }
+              disabled={currentSlide === 0}
+            />
+
+            <Arrow
+              onClick={(e: any) =>
+                e.stopPropagation() || instanceRef.current?.next()
+              }
+              disabled={
+                currentSlide ===
+                instanceRef.current.track.details.slides.length - 1
+              }
+            />
+          </>
+        )}
+      </div>
     </div>
+    {loaded && instanceRef.current && instanceRef.current.track.details.slides ? (
+  <div className={styles.dots}>
+    {[...Array(instanceRef.current.track.details.slides.length).keys()].map((idx) => {
+      return (
+        <button
+          key={idx}
+          onClick={() => {
+            instanceRef.current?.moveToIdx(idx);
+          }}
+          className={`${styles.dot} ${currentSlide === idx ? styles.active : ''}`}
+        ></button>
+      );
+    })}
+  </div>
+) : null}
+    </>
+  )
+}
+
+interface ArrowProps {
+  disabled: boolean;
+  left?: boolean;
+  onClick: (e: React.MouseEvent<SVGElement>) => void;
+}
+
+const Arrow: React.FC<ArrowProps> = ({ disabled, left, onClick }) => {
+  return (
+    <svg
+      onClick={disabled ? undefined : onClick} // Prevent click if disabled
+      className={`${styles.arrow} ${left ? styles.arrowLeft : styles.arrowRight} ${disabled ? styles['arrow--disabled'] : ''}`}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+    >
+      {left ? (
+        <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
+      ) : (
+        <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
+      )}
+    </svg>
   );
 };
-
-export default Slider;
