@@ -48,9 +48,6 @@ const FlashSale = () => {
                 </div>
             </div>
             </div>
-            <div className="goods">
-
-            </div>
         </div>
     </div>
     );
