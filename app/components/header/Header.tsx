@@ -6,14 +6,13 @@ import Cart from '../../../public/images/cart.png'
 import Search from '../../../public/images/search.png'
 import Link from "next/link";
 
-
 const Header = () => {
   return (
     <>
       <div className={styles.bar}>
         <div className={styles.text}>
           Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
-          <Link href=''>Shop Now </Link>
+          <Link className={styles.shopNow} href=''>Shop Now </Link>
         </div>
         <div></div>
         <div className={styles.languageSelector}>
@@ -34,7 +33,7 @@ const Header = () => {
             <div className={styles.inputContainer}>
               <input className={styles.inputSearhFooter} type="text" placeholder="What are you looking for?" />
               <button type="submit" className={styles.emailButton}>
-              <Image className={styles.search} src={Search} alt="Search" />
+              <Image className={`${styles.icons} ${styles.search}`} src={Search} alt="Search" />
               </button>
             </div>
             <Image className={styles.icons} src={Heart} alt="heart"></Image>
