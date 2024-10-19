@@ -80,5 +80,50 @@
 }
 
 .icons{
-   height: 350px;
+  width: 350px;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.numberSlide1{
+  background-color: black;
+  height: 350px;
+}
+
+.numberSlide2{
+  background-color: black;
+
+}
+
+.numberSlide3{
+  background-color: black;
+
+}
+
+.numberSlide4{
+  background-color: black;
+
+}
+
+.numberSlide5{
+  background-color: black;
+}
+
+.numberSlide6{
+  background-color: black;
+}
+
+.contentInCaruseleContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 350px;
 }

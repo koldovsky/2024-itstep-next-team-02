@@ -1,6 +1,6 @@
 // components/KeenSlider.tsx
 "use client";
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styles from "./Slider.module.css";
 import { useKeenSlider, KeenSliderPlugin } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
@@ -32,28 +32,51 @@ export default function App() {
     [AdaptiveHeight]
   )
 
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 1);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+
   return (
     <>
     <div className={styles.containForSlider}>
-      <div className={styles.navigationWrapper}>
+      <div className={`${styles.navigationWrapper} ${isVisible ? styles.visible : styles.hidden}`}>
         <div ref={sliderRef} className={`${styles.keenSlider} keen-slider `}>
           <div className={`${styles.keenSlider__slide} ${styles.numberSlide1} keen-slider__slide number-slide1`}>
-            <Image className={styles.icons} src={Phone} alt="cart"></Image>
+            <div className={styles.contentInCaruseleContainer}>
+              <Image className={styles.icons} src={Phone} alt="cart"></Image>
+            </div>
           </div>
           <div className={`${styles.keenSlider__slide} ${styles.numberSlide2} keen-slider__slide number-slide2`}>
-            <Image className={styles.icons} src={Phone} alt="cart"></Image>
+            <div className={styles.contentInCaruseleContainer}>
+              <Image className={styles.icons} src={Phone} alt="cart"></Image>
+            </div>
           </div>
           <div className={`${styles.keenSlider__slide} ${styles.numberSlide3} keen-slider__slide number-slide3`}>
-            <Image className={styles.icons} src={Phone} alt="cart"></Image>
+            <div className={styles.contentInCaruseleContainer}>
+              <Image className={styles.icons} src={Phone} alt="cart"></Image>
+            </div>
           </div>
           <div className={`${styles.keenSlider__slide} ${styles.numberSlide4} keen-slider__slide number-slide4`}>
-            <Image className={styles.icons} src={Phone} alt="cart"></Image>
+            <div className={styles.contentInCaruseleContainer}>
+              <Image className={styles.icons} src={Phone} alt="cart"></Image>
+            </div>
           </div>
           <div className={`${styles.keenSlider__slide} ${styles.numberSlide5} keen-slider__slide number-slide5`}>
-            <Image className={styles.icons} src={Phone} alt="cart"></Image>
+            <div className={styles.contentInCaruseleContainer}>
+              <Image className={styles.icons} src={Phone} alt="cart"></Image>
+            </div>
           </div>
           <div className={`${styles.keenSlider__slide} ${styles.numberSlide6} keen-slider__slide number-slide6`}>
-            <Image className={styles.icons} src={Phone} alt="cart"></Image>
+            <div className={styles.contentInCaruseleContainer}>
+              <Image className={styles.icons} src={Phone} alt="cart"></Image>
+            </div>
           </div>
         </div>
         {loaded && instanceRef.current && (
@@ -107,7 +130,7 @@ interface ArrowProps {
 const Arrow: React.FC<ArrowProps> = ({ disabled, left, onClick }) => {
   return (
     <svg
-      onClick={disabled ? undefined : onClick} // Prevent click if disabled
+      onClick={disabled ? undefined : onClick} 
       className={`${styles.arrow} ${left ? styles.arrowLeft : styles.arrowRight} ${disabled ? styles['arrow--disabled'] : ''}`}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
