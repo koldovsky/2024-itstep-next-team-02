@@ -5,7 +5,10 @@ import styles from "./Slider.module.css";
 import { useKeenSlider, KeenSliderPlugin } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import Image from "next/image";
+import Link from "next/link";
 import Phone from '../../../public/images/phone.png'
+import appleLogo from '../../../public/images/appleLogo.png'
+import shopNowButton from '../../../public/images/shopeNowButton.png'
 
 const AdaptiveHeight: KeenSliderPlugin = (slider) => {
   function updateHeight() {
@@ -35,6 +38,28 @@ export default function App() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    if (!loaded || !instanceRef.current) return;
+  
+    const interval = setInterval(() => {
+      if (instanceRef.current) {
+        const currentSlideIndex = instanceRef.current.track.details.rel;
+        const totalSlides = instanceRef.current.track.details.slides.length;
+  
+        if (currentSlideIndex === totalSlides - 1) {
+          instanceRef.current.moveToIdx(0);
+          setCurrentSlide(0);
+        } else {
+          instanceRef.current.next();
+          setCurrentSlide(currentSlideIndex + 1);
+        }
+      }
+    }, 4000); 
+  
+    return () => clearInterval(interval); 
+  }, [loaded, instanceRef]);
+  
+
+  useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
     }, 1);
@@ -49,33 +74,126 @@ export default function App() {
       <div className={`${styles.navigationWrapper} ${isVisible ? styles.visible : styles.hidden}`}>
         <div ref={sliderRef} className={`${styles.keenSlider} keen-slider `}>
           <div className={`${styles.keenSlider__slide} ${styles.numberSlide1} keen-slider__slide number-slide1`}>
+
             <div className={styles.contentInCaruseleContainer}>
-              <Image className={styles.icons} src={Phone} alt="cart"></Image>
+              <div className={styles.contentInCaruseleContainerForTetx}>
+                <div className={styles.contentInCaruseleContainerForTetxFlex}>
+                  <div className={styles.LogoAndNameContainer}>
+                    <div className={styles.appleLogo}> <Image src = {appleLogo} alt = "Apple Logo" /></div>
+                    <div className={styles.phoneName}> iPhone 24 Pro Max</div>
+                  </div>
+                  <div className={styles.mainTextInCarusele}>Up to 10% off Voucher</div>
+                  <div className={styles.shopNowButtonContainer}>
+                    <Link href = "" className={styles.shopNow}>Shop Now</Link>
+                    <Image className={styles.shopNowButton} src = {shopNowButton} alt = "Shop Now Button" />
+                  </div>
+                </div>
+              </div>
+              <div className={styles.contentInCaruseleContainerForPhoto}>
+                <Image className={styles.icons} src={Phone} alt="cart"></Image>
+              </div>
             </div>
+
           </div>
+
           <div className={`${styles.keenSlider__slide} ${styles.numberSlide2} keen-slider__slide number-slide2`}>
-            <div className={styles.contentInCaruseleContainer}>
-              <Image className={styles.icons} src={Phone} alt="cart"></Image>
+          <div className={styles.contentInCaruseleContainer}>
+              <div className={styles.contentInCaruseleContainerForTetx}>
+                <div className={styles.contentInCaruseleContainerForTetxFlex}>
+                  <div className={styles.LogoAndNameContainer}>
+                    <div className={styles.appleLogo}> <Image src = {appleLogo} alt = "Apple Logo" /></div>
+                    <div className={styles.phoneName}> iPhone 24 Pro Max</div>
+                  </div>
+                  <div className={styles.mainTextInCarusele}>Up to 10% off Voucher</div>
+                  <div className={styles.shopNowButtonContainer}>
+                    <Link href = "" className={styles.shopNow}>Shop Now</Link>
+                    <Image className={styles.shopNowButton} src = {shopNowButton} alt = "Shop Now Button" />
+                  </div>
+                </div>
+              </div>
+              <div className={styles.contentInCaruseleContainerForPhoto}>
+                <Image className={styles.icons} src={Phone} alt="cart"></Image>
+              </div>
             </div>
           </div>
           <div className={`${styles.keenSlider__slide} ${styles.numberSlide3} keen-slider__slide number-slide3`}>
-            <div className={styles.contentInCaruseleContainer}>
-              <Image className={styles.icons} src={Phone} alt="cart"></Image>
+          <div className={styles.contentInCaruseleContainer}>
+              <div className={styles.contentInCaruseleContainerForTetx}>
+                <div className={styles.contentInCaruseleContainerForTetxFlex}>
+                  <div className={styles.LogoAndNameContainer}>
+                    <div className={styles.appleLogo}> <Image src = {appleLogo} alt = "Apple Logo" /></div>
+                    <div className={styles.phoneName}> iPhone 24 Pro Max</div>
+                  </div>
+                  <div className={styles.mainTextInCarusele}>Up to 10% off Voucher</div>
+                  <div className={styles.shopNowButtonContainer}>
+                    <Link href = "" className={styles.shopNow}>Shop Now</Link>
+                    <Image className={styles.shopNowButton} src = {shopNowButton} alt = "Shop Now Button" />
+                  </div>
+                </div>
+              </div>
+              <div className={styles.contentInCaruseleContainerForPhoto}>
+                <Image className={styles.icons} src={Phone} alt="cart"></Image>
+              </div>
             </div>
           </div>
           <div className={`${styles.keenSlider__slide} ${styles.numberSlide4} keen-slider__slide number-slide4`}>
-            <div className={styles.contentInCaruseleContainer}>
-              <Image className={styles.icons} src={Phone} alt="cart"></Image>
+          <div className={styles.contentInCaruseleContainer}>
+              <div className={styles.contentInCaruseleContainerForTetx}>
+                <div className={styles.contentInCaruseleContainerForTetxFlex}>
+                  <div className={styles.LogoAndNameContainer}>
+                    <div className={styles.appleLogo}> <Image src = {appleLogo} alt = "Apple Logo" /></div>
+                    <div className={styles.phoneName}> iPhone 24 Pro Max</div>
+                  </div>
+                  <div className={styles.mainTextInCarusele}>Up to 10% off Voucher</div>
+                  <div className={styles.shopNowButtonContainer}>
+                    <Link href = "" className={styles.shopNow}>Shop Now</Link>
+                    <Image className={styles.shopNowButton} src = {shopNowButton} alt = "Shop Now Button" />
+                  </div>
+                </div>
+              </div>
+              <div className={styles.contentInCaruseleContainerForPhoto}>
+                <Image className={styles.icons} src={Phone} alt="cart"></Image>
+              </div>
             </div>
           </div>
           <div className={`${styles.keenSlider__slide} ${styles.numberSlide5} keen-slider__slide number-slide5`}>
-            <div className={styles.contentInCaruseleContainer}>
-              <Image className={styles.icons} src={Phone} alt="cart"></Image>
+          <div className={styles.contentInCaruseleContainer}>
+              <div className={styles.contentInCaruseleContainerForTetx}>
+                <div className={styles.contentInCaruseleContainerForTetxFlex}>
+                  <div className={styles.LogoAndNameContainer}>
+                    <div className={styles.appleLogo}> <Image src = {appleLogo} alt = "Apple Logo" /></div>
+                    <div className={styles.phoneName}> iPhone 24 Pro Max</div>
+                  </div>
+                  <div className={styles.mainTextInCarusele}>Up to 10% off Voucher</div>
+                  <div className={styles.shopNowButtonContainer}>
+                    <Link href = "" className={styles.shopNow}>Shop Now</Link>
+                    <Image className={styles.shopNowButton} src = {shopNowButton} alt = "Shop Now Button" />
+                  </div>
+                </div>
+              </div>
+              <div className={styles.contentInCaruseleContainerForPhoto}>
+                <Image className={styles.icons} src={Phone} alt="cart"></Image>
+              </div>
             </div>
           </div>
           <div className={`${styles.keenSlider__slide} ${styles.numberSlide6} keen-slider__slide number-slide6`}>
-            <div className={styles.contentInCaruseleContainer}>
-              <Image className={styles.icons} src={Phone} alt="cart"></Image>
+          <div className={styles.contentInCaruseleContainer}>
+              <div className={styles.contentInCaruseleContainerForTetx}>
+                <div className={styles.contentInCaruseleContainerForTetxFlex}>
+                  <div className={styles.LogoAndNameContainer}>
+                    <div className={styles.appleLogo}> <Image src = {appleLogo} alt = "Apple Logo" /></div>
+                    <div className={styles.phoneName}> iPhone 24 Pro Max</div>
+                  </div>
+                  <div className={styles.mainTextInCarusele}>Up to 10% off Voucher</div>
+                  <div className={styles.shopNowButtonContainer}>
+                    <Link href = "" className={styles.shopNow}>Shop Now</Link>
+                    <Image className={styles.shopNowButton} src = {shopNowButton} alt = "Shop Now Button" />
+                  </div>
+                </div>
+              </div>
+              <div className={styles.contentInCaruseleContainerForPhoto}>
+                <Image className={styles.icons} src={Phone} alt="cart"></Image>
+              </div>
             </div>
           </div>
         </div>
@@ -86,7 +204,7 @@ export default function App() {
               onClick={(e: any) =>
                 e.stopPropagation() || instanceRef.current?.prev()
               }
-              disabled={currentSlide === 0}
+              disabled={currentSlide === 0} 
             />
 
             <Arrow

@@ -23,11 +23,13 @@
 
 .arrowLeft {
   left: 5px;
+  display: none;
 }
 
 .arrowRight {
   left: auto;
   right: 5px;
+  display: none;
 }
 
 .arrowDisabled {
@@ -66,7 +68,7 @@
 }
 
 .keenSlider {
-   transition: height 0.3s;
+   transition: height 0.9s;
 }
  
 .keenSlider .keenSlider__slide {
@@ -121,9 +123,65 @@
   background-color: black;
 }
 
-.contentInCaruseleContainer{
+.contentInCaruseleContainerForPhoto{
   display: flex;
   justify-content: center;
   align-items: center;
   height: 350px;
+}
+
+.phoneName{
+  color:#fff;
+  font-size: 16px;
+}
+
+.LogoAndNameContainer{
+  display: flex;
+  align-items: center;
+}
+
+.mainTextInCarusele{
+  color:#fff;
+  font-size: 48px;
+  font-weight: 600;
+}
+
+.contentInCaruseleContainer{
+  display: flex;
+}
+
+.shopNow{
+  color:#fff;
+  font-size: 16px;
+  padding-right: 10px;
+}
+
+.contentInCaruseleContainerForTetx{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  width: 34%;
+}
+
+.contentInCaruseleContainerForTetxFlex{
+  display: flex;
+  align-items: start;
+  width: 100%;
+  flex-direction: column;
+  padding-left: 20%;
+}
+
+.phoneName{
+  padding-left: 20px;
+}
+
+.shopNowButtonContainer{
+  display: flex;
+  align-items: center;
+  width: 200px;
+}
+
+.shopNowButton{
+  width: 15px;
 }
