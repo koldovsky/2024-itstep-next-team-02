@@ -1,0 +1,50 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.frame{
+    width: 230px;
+    height: 230px;
+    background-color: #F5F5F5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.goodImage{
+    background-image: url('../../../public/images/gamepad.png');
+    width: 200px;
+    height: 200px;
+    background-repeat: no-repeat;
+}
+
+.discount{
+    width: 55px;
+    height: 26px;
+    background-color: #DB4444;
+    border-radius: 5px;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+
+.goodPrice{
+    display: flex;
+}
+
+.newPrice{
+    margin-right: 20px;
+    color: #DB4444;
+}
+
+.oldPrice{
+    text-decoration: line-through;
+    color: grey;
+}
+

@@ -1,0 +1,53 @@
+.wrapper{
+    display: flex;
+    justify-content: center;
+    padding-top: 130px;
+}
+
+.container{
+    height: 143px;
+    width: 70%;
+}
+
+.containerForRectangleText{
+    display: flex;
+    align-items: center;
+}
+
+.upperblockText{
+    margin-left: 15px;
+    color: #DB4444;
+    
+}
+
+.flashSalesText{
+    margin-top: 25px;
+    font-size: 36px;
+    font-weight: bold;
+    
+}
+
+
+.flashSalesTextTimerArrows{
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+}
+
+.arrows{
+    display: flex;
+}
+
+.timer {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-left: 50px;
+  }
+  
+  .timerPart {
+    font-weight: bold;
+  }
+
