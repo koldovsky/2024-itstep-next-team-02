@@ -23,10 +23,12 @@
 .text {
     margin-left: 150px;
     font-size: 14px;
+    margin-left: 20%;
 }
 
 .languageSelector {
     display: inline-block;
+    margin-right: 8%;
 }
 
 .language {
@@ -55,12 +57,53 @@
 }
 
 .icons {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     margin-right: 5px;
     margin-left: 5px;
 }
 
 .flex {
     display: flex;
+    align-items: center;
+    height: 45px;
+}
+
+.nuvButonsContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+}
+
+.inputContainer{
+    display: flex;
+    align-items: center;
+    border: 2px solid white;
+    border-radius: 7px;
+    padding: 5px 10px;
+    background-color: #F5F5F5; 
+    width: 250px;
+    justify-content: space-between;
+    height: 45px;
+}
+
+.inputSearhFooter{
+    border: none; 
+    background: none; 
+    color: white; 
+    font-size: 16px; 
+    outline: none;
+    width: 200px; 
+    caret-color: black;
+}
+
+.search {
+    width: 25px;
+    height: 25px;
+}
+
+.shopNow {
+    margin-left: 10px;
+    font-weight: 600;
+    text-decoration: underline;
 }
