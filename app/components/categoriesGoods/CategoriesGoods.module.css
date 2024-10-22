@@ -1,0 +1,27 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.frame{
+    width: 170px;
+    height: 145px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #F5F5F5; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
