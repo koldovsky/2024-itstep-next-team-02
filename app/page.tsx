@@ -15,7 +15,7 @@ function Home() {
       <ViewAllButton />
       <Line />
       <Categories />
-      <CategoriesGoods />
+
       <Line />
     </div>
   );
