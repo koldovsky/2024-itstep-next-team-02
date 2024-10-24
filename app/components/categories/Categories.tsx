@@ -1,14 +1,7 @@
-// components/KeenSlider.tsx
 "use client";
 import React, { useState, useEffect } from "react"
-
 import { useKeenSlider, KeenSliderPlugin } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
-
-import Link from "next/link";
-import Phone from '../../../public/images/phone.png'
-import appleLogo from '../../../public/images/appleLogo.png'
-import shopNowButton from '../../../public/images/shopeNowButton.png'
 import styles from './Categories.module.css'
 import Image from "next/image";
 import Rectangle from "../../../public/images/upperblockRectangle.png"
@@ -76,8 +69,26 @@ import CategoriesGoods from "../categoriesGoods/CategoriesGoods"
             
 
                                 <div className={styles.arrows}>
-                                    <Image className={styles.arrowsIcons} src={LeftArrow} alt="sw"></Image>
-                                    <Image className={styles.arrowsIcons} src={RightArrow} alt="left"></Image>
+                                <Image
+                                    className={styles.arrowsIcons}
+                                    src={LeftArrow}
+                                    alt="left"
+                                    onClick={() => instanceRef.current?.prev()}
+                                    style={{ cursor: currentSlide === 0 ? 'not-allowed' : 'pointer' }} 
+                                />
+                                <button>
+                                    <Image
+                                        className={styles.arrowsIcons}
+                                        src={RightArrow}
+                                        alt="right"
+                                        onClick={() => instanceRef.current?.next()} 
+                                        style={{
+                                            cursor: instanceRef.current && currentSlide === instanceRef.current.track.details.slides.length - 1
+                                            ? 'not-allowed'
+                                            : 'pointer',
+                                        }} 
+                                    />
+                                </button>
                                 </div>
                                 
                             </div>
@@ -163,64 +174,3 @@ import CategoriesGoods from "../categoriesGoods/CategoriesGoods"
           </svg>
         );
       };
-    
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//         <div className={styles.wrapper}>
-//         <div className={styles.container}>
-//             <div className={styles.todays}>
-//                 <div className={styles.upperblock}>
-//                     <div className={styles.containerForRectangleText}>
-//                         <div className={styles.upperblockRectangle}>
-//                             <Image className={styles.rectangle} src={Rectangle} alt="Rectangle"></Image>
-//                         </div>
-//                         <div className={styles.upperblockText}>
-//                             Categories
-//                         </div>
-//                     </div>
-                    
-//                 </div>
-//                 <div className={styles.flashSalesTextTimerArrows}>
-//                 <div className={styles.flashSalesText}>
-//                         Browse By Category
-//                 </div>
-            
-
-//                 <div className={styles.arrows}>
-//                 <Image className={styles.arrowsIcons} src={LeftArrow} alt="left"></Image>
-//                 <Image className={styles.arrowsIcons} src={RightArrow} alt="left"></Image>
-//                 </div>
-//             </div>
-//             </div>
-//         </div>
-//     </div>
-
-
-
-
-
-//     </div>
-//     );
-//   };
-  
-//   export default Categories;

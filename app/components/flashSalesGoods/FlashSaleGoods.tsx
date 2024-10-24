@@ -4,6 +4,8 @@ import Gamepad from "../../../public/images/gamepad.png"
 import Keyboard from "../../../public/images/keyboard.png"
 import Monitor from "../../../public/images/monitor.png"
 import Chair from "../../../public/images/chair.png"
+import Link from 'next/link';
+
 
 const FlashSaleGoods = () => {
     
@@ -16,6 +18,8 @@ const FlashSaleGoods = () => {
                             -40%
                         </div>
                     </div>
+                    <button className={styles.addToCartButton}>Add To Cart</button>
+                    
                 </div>
                 <div className={styles.description}>
                     <div className={styles.goodName}>
