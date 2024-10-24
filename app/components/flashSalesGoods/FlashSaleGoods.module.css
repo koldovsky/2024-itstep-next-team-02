@@ -57,24 +57,4 @@
 }
 
 
-.addToCartButton{
-    all: unset;
-    background-color: black;
-    color: #F5F5F5;
-    width: 100%;
-    padding: 10px 0px 10px 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    z-index: 10;
-    bottom: 0;
-    opacity: 0; /* Спочатку елемент невидимий */
-    transition: opacity 0.3s ease-in-out; /* Плавна поява */
-}
-
-.addToCartButton:hover{
-
-    opacity: 0;
-}
 
