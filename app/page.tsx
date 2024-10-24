@@ -6,6 +6,7 @@ import Line from './components/line/Line';
 import Slider from './components/sliderOnHeader/Slider';
 import ViewAllButton from './components/viewAllButton/ViewAllButton';
 
+
 function Home() {
   return (
     <div>

@@ -1,0 +1,80 @@
+.mainImage{
+  width: 40%;
+  border-radius: 5px;
+}
+
+.mainContainer{
+  display: flex;
+  margin: 3% 0% 3% 0%;
+}
+
+.loginContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 80%;
+}
+
+.loginContainer h1{
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.loginContainer h2{
+  font-size: 16px;
+  font-weight: lighter;
+  margin-bottom: 50px;
+}
+
+.loginContainer input{
+  width: 60%;
+  border-bottom: solid 1px;
+  border-color: rgb(230, 230, 230);
+  padding: 8px 8px 8px 0px;
+  margin-bottom: 20px;
+}
+
+.createAccountButton{
+  background-color: rgb(214, 76, 51);
+  width: 60%;
+  padding: 20px;
+  border-radius: 5px;
+  color: beige;
+  margin-bottom: 20px;
+}
+
+.googleLogo{
+  width: 20px;
+  margin-right: 15px;
+}
+
+.createAccountButtonGoogle{
+  width: 60%;
+  padding: 20px;
+  border-radius: 5px;
+  color: rgb(0, 0, 0);
+  display: flex;
+  border: 1px solid;
+  align-self: center;
+  justify-content: center;
+}
+
+.logOption{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  padding: 20px;
+}
+
+.logOption h3{
+color: rgb(104, 104, 104);
+}
+
+.logOptionLink{
+  margin-left: 5%;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
