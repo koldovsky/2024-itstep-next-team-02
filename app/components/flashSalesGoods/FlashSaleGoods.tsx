@@ -5,6 +5,7 @@ import Keyboard from "../../../public/images/keyboard.png"
 import Monitor from "../../../public/images/monitor.png"
 import Chair from "../../../public/images/chair.png"
 import Link from 'next/link';
+import AddToCartButton from '../addToCartButton/AddToCartButton';
 
 
 const FlashSaleGoods = () => {
@@ -18,7 +19,8 @@ const FlashSaleGoods = () => {
                             -40%
                         </div>
                     </div>
-                    <button className={styles.addToCartButton}>Add To Cart</button>
+
+                    <AddToCartButton />
                     
                 </div>
                 <div className={styles.description}>
@@ -36,6 +38,7 @@ const FlashSaleGoods = () => {
                     <div className={styles.rating}>
                         stars:88
                     </div>
+                    
                 </div>
             </div>
             <div className={styles.good}>
@@ -45,6 +48,9 @@ const FlashSaleGoods = () => {
                             -40%
                         </div>
                     </div>
+
+                    <AddToCartButton />
+
                 </div>
                 <div className={styles.description}>
                     <div className={styles.goodName}>
@@ -70,6 +76,9 @@ const FlashSaleGoods = () => {
                             -40%
                         </div>
                     </div>
+
+                    <AddToCartButton />
+
                 </div>
                 <div className={styles.description}>
                     <div className={styles.goodName}>
@@ -95,6 +104,9 @@ const FlashSaleGoods = () => {
                             -40%
                         </div>
                     </div>
+
+                    <AddToCartButton />
+                    
                 </div>
                 <div className={styles.description}>
                     <div className={styles.goodName}>
