@@ -7,13 +7,8 @@ import GoogleLogo from "../../public/images/GoogleLogo.png";
 import { useState } from 'react';
 
 const Login = () => {
-  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-  };
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -25,7 +20,11 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Name:', name);
+
+    if (!email || !password) {
+      return;
+    }
+
     console.log('Email:', email);
     console.log('Password:', password);
   };
@@ -34,18 +33,17 @@ const Login = () => {
     <>
       <div className={styles.mainContainer}>
         <Image className={styles.mainImage} src={MainImage} alt="mainImage" />
+        
         <div className={styles.loginContainer}>
+
           <div className={styles.loginContainerForFlex}>
-            <h1>Create an account</h1>
+
+            <h1>Log in to Exclusive</h1>
+                                  
             <h2>Enter your details below</h2>
-            <form onSubmit={handleSubmit}>
-              <input 
-                type="text" 
-                placeholder="Name" 
-                id="name" 
-                value={name}
-                onChange={handleNameChange}
-              />
+             
+            <form onSubmit={handleSubmit} className={styles.loginContainerForm} >
+              
               <input 
                 type="text" 
                 placeholder="Enter your email" 
@@ -53,6 +51,7 @@ const Login = () => {
                 value={email}
                 onChange={handleEmailChange}
               />
+              
               <input 
                 type="password"
                 placeholder="Password" 
@@ -60,19 +59,15 @@ const Login = () => {
                 value={password}
                 onChange={handlePasswordChange}
               />
-              <button className={styles.createAccountButton} type="submit">Create Account</button>
-              <button className={styles.createAccountButtonGoogle} type="button">
-                <Image src={GoogleLogo} alt="Google Logo" className={styles.googleLogo} />
-                Sign up with Google
-              </button>
-            </form>
+              <div className={styles.logButtonContainer}>
+                <button className={styles.createAccountButton} type="submit">Log in</button>
+                  <Link href=" " className={styles.forgotPasswordButton}>Forget Password?</Link>
+              </div>
 
-            <div className={styles.logOption}>
-              <h3>Already have an account?</h3>
-              <Link href="/login" className={styles.logOptionLink}>Log in</Link>
-            </div>
+            </form>
+            
           </div>
-        </div>
+        </div> 
       </div>
     </>
   );

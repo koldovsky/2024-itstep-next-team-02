@@ -138,6 +138,13 @@
 .LogoAndNameContainer{
   display: flex;
   align-items: center;
+  position: relative; /* або 'absolute', якщо потрібно точне позиціонування */
+  z-index: 2;
+}
+
+.contentInCaruseleContainerForPhoto {
+  position: relative;
+  z-index: 1; /* встановлює елемент нижче 'LogoAndNameContainer' */
 }
 
 .mainTextInCarusele{
@@ -148,6 +155,7 @@
 
 .contentInCaruseleContainer{
   display: flex;
+  position: relative;
 }
 
 .shopNow{
@@ -184,4 +192,29 @@
 
 .shopNowButton{
   width: 15px;
+}
+
+@media (max-width: 1350px){
+  .contentInCaruseleContainer{
+    flex-direction: column;
+  }
+  .mainTextInCarusele{
+    display: none;
+  }
+  .shopNow{
+    display: none;
+  }
+  .shopNowButton{
+    display: none;
+  }
+  .contentInCaruseleContainerForTetx{
+    width: 100%;    
+    padding-left: 0%;
+    margin-top: 20px;
+  }
+  .contentInCaruseleContainerForTetxFlex{
+    align-items: center;
+    justify-content: center;
+    padding-left: 0%;
+  }
 }

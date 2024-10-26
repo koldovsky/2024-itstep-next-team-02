@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./Header.module.css";
 import Image from "next/image";
 import Vector from "../../../public/images/vector.png";
@@ -7,6 +9,8 @@ import Search from '../../../public/images/search.png'
 import Link from "next/link";
 
 const Header = () => {
+
+
   return (
     <>
       <div className={styles.bar}>
@@ -24,10 +28,10 @@ const Header = () => {
         <div className={styles.navBarContainer}>
           <div className={styles.brandName}>Exclusive</div>
           <div className={styles.nuvButonsContainer}>
-            <Link href = "">Home</Link>
-            <Link href = "">About</Link>
-            <Link href = "">Contact</Link>
-            <Link href = "">Sign Up</Link>
+            <Link href = "/" className={styles.nuvButons} >Home</Link>
+            <Link href = "" className={styles.nuvButons} >About</Link>
+            <Link href = "" className={styles.nuvButons} >Contact</Link>
+            <Link href = "/register" className={styles.nuvButons}>Sign Up</Link>
           </div>
           <div className={styles.flex}>
             <div className={styles.inputContainer}>

@@ -53,7 +53,7 @@ export default function App() {
           setCurrentSlide(currentSlideIndex + 1);
         }
       }
-    }, 4000); 
+    }, 400000000000); 
   
     return () => clearInterval(interval); 
   }, [loaded, instanceRef]);
