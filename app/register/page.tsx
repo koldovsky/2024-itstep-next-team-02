@@ -25,6 +25,11 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!name || !email || !password) {
+      return;
+    }
+
     console.log('Name:', name);
     console.log('Email:', email);
     console.log('Password:', password);
@@ -34,18 +39,26 @@ const Login = () => {
     <>
       <div className={styles.mainContainer}>
         <Image className={styles.mainImage} src={MainImage} alt="mainImage" />
-        <div className={styles.loginContainer}>
-          <div className={styles.loginContainerForFlex}>
+        
+        <div className={styles.registerContainer}>
+
+          <div className={styles.registerContainerForFlex}>
+
             <h1>Create an account</h1>
+                                  
             <h2>Enter your details below</h2>
-            <form onSubmit={handleSubmit}>
-              <input 
+             
+            <form onSubmit={handleSubmit} className={styles.registerContainerForm} >
+              
+               <input 
                 type="text" 
                 placeholder="Name" 
                 id="name" 
                 value={name}
                 onChange={handleNameChange}
               />
+              
+              
               <input 
                 type="text" 
                 placeholder="Enter your email" 
@@ -53,6 +66,7 @@ const Login = () => {
                 value={email}
                 onChange={handleEmailChange}
               />
+              
               <input 
                 type="password"
                 placeholder="Password" 
@@ -60,19 +74,23 @@ const Login = () => {
                 value={password}
                 onChange={handlePasswordChange}
               />
+              
               <button className={styles.createAccountButton} type="submit">Create Account</button>
-              <button className={styles.createAccountButtonGoogle} type="button">
+              <button className={styles.createAccountButtonGoogle} type="button" disabled={!name || !email || !password}>
                 <Image src={GoogleLogo} alt="Google Logo" className={styles.googleLogo} />
                 Sign up with Google
-              </button>
+              </button> 
+              
             </form>
+
 
             <div className={styles.logOption}>
               <h3>Already have an account?</h3>
               <Link href="/login" className={styles.logOptionLink}>Log in</Link>
             </div>
+            
           </div>
-        </div>
+        </div> 
       </div>
     </>
   );
