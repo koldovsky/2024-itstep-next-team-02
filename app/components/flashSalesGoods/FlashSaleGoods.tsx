@@ -1,11 +1,5 @@
 import styles from './FlashSaleGoods.module.css'
-import Image from "next/image";
-import Gamepad from "../../../public/images/gamepad.png"
-import Keyboard from "../../../public/images/keyboard.png"
-import Monitor from "../../../public/images/monitor.png"
-import Chair from "../../../public/images/chair.png"
-import Link from 'next/link';
-import AddToCartButton from '../addToCartButton/AddToCartButton';
+import AddToCartButton from '../addToCart/AddToCartButton'
 
 
 const FlashSaleGoods = () => {
@@ -106,7 +100,7 @@ const FlashSaleGoods = () => {
                     </div>
 
                     <AddToCartButton />
-                    
+
                 </div>
                 <div className={styles.description}>
                     <div className={styles.goodName}>
