@@ -1,3 +1,4 @@
+import { url } from "inspector";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -11,6 +12,10 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+      },
+      backgroundImage: {
+        "jbl-bkg": "url('/assets/jbl-bg.png')",
+        "jbl-bkg-mb": "url('/assets/jbl-bg-mobile.png')",
       },
     },
   },

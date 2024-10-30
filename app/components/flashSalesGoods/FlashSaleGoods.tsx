@@ -1,9 +1,6 @@
 import styles from './FlashSaleGoods.module.css'
-import Image from "next/image";
-import Gamepad from "../../../public/images/gamepad.png"
-import Keyboard from "../../../public/images/keyboard.png"
-import Monitor from "../../../public/images/monitor.png"
-import Chair from "../../../public/images/chair.png"
+import AddToCartButton from '../addToCart/AddToCartButton'
+
 
 const FlashSaleGoods = () => {
     
@@ -16,6 +13,9 @@ const FlashSaleGoods = () => {
                             -40%
                         </div>
                     </div>
+
+                    <AddToCartButton />
+                    
                 </div>
                 <div className={styles.description}>
                     <div className={styles.goodName}>
@@ -32,6 +32,7 @@ const FlashSaleGoods = () => {
                     <div className={styles.rating}>
                         stars:88
                     </div>
+                    
                 </div>
             </div>
             <div className={styles.good}>
@@ -41,6 +42,9 @@ const FlashSaleGoods = () => {
                             -40%
                         </div>
                     </div>
+
+                    <AddToCartButton />
+
                 </div>
                 <div className={styles.description}>
                     <div className={styles.goodName}>
@@ -66,6 +70,9 @@ const FlashSaleGoods = () => {
                             -40%
                         </div>
                     </div>
+
+                    <AddToCartButton />
+
                 </div>
                 <div className={styles.description}>
                     <div className={styles.goodName}>
@@ -91,6 +98,9 @@ const FlashSaleGoods = () => {
                             -40%
                         </div>
                     </div>
+
+                    <AddToCartButton />
+
                 </div>
                 <div className={styles.description}>
                     <div className={styles.goodName}>

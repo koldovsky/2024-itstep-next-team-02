@@ -12,14 +12,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    z-index: 1;
+}
 
+.frame:hover .addToCartButton {
+    opacity: 1; /* Зміна прозорості на 0 при наведенні на .frame */
 }
 
 .goodImage{
     background-image: url('../../../public/images/gamepad.png');
-    width: 200px;
-    height: 200px;
+    width: 80%;
+    height: 80%;
     background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .discount{
@@ -47,4 +55,6 @@
     text-decoration: line-through;
     color: grey;
 }
+
+
 
