@@ -76,6 +76,7 @@ import CategoriesGoods from "../categoriesGoods/CategoriesGoods"
                                     onClick={() => instanceRef.current?.prev()}
                                     style={{ cursor: currentSlide === 0 ? 'not-allowed' : 'pointer' }} 
                                 />
+                                <div className={styles.arrowsIcons}></div>
                                 <button>
                                     <Image
                                         className={styles.arrowsIcons}

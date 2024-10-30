@@ -5,8 +5,6 @@ import NewArrival from './components/newArrival/NewArrival';
 import NewArrivalItems from './components/newArrivalItems/newArrivalItems';
 import Categories from './components/categories/Categories';
 import CategoriesGoods from './components/categoriesGoods/CategoriesGoods';
-import FlashSale from './components/flashSales/FlashSale';
-import FlashSaleGoods from './components/flashSalesGoods/FlashSaleGoods';
 import Line from './components/line/Line';
 import Slider from './components/sliderOnHeader/Slider';
 import ViewAllButton from './components/viewAllButton/ViewAllButton';
@@ -19,15 +17,15 @@ function Home() {
       <Slider />
       <FlashSale />
       <FlashSaleGoods />
+      <Line />
+      <Categories />
+      <Line />
+      <BestSellProducts />;
+      <Line />
       <NewArrival/>
       <NewArrivalItems/>
       <Features/>
       <ViewAllButton />
-      <Line />
-      <Categories />
-
-      <Line />
-      <BestSellProducts />;
     </div>
   );
 }
