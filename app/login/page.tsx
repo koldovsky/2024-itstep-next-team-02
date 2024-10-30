@@ -61,7 +61,7 @@ const Login = () => {
               />
               <div className={styles.logButtonContainer}>
                 <button className={styles.createAccountButton} type="submit">Log in</button>
-                  <Link href=" " className={styles.forgotPasswordButton}>Forget Password?</Link>
+                <Link href=" " className={styles.forgotPasswordButton}>Forget Password?</Link>
               </div>
 
             </form>
