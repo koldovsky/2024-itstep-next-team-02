@@ -1,4 +1,3 @@
-"use client";
 
 import styles from "./Header.module.css";
 import Image from "next/image";
@@ -6,6 +5,11 @@ import Vector from "../../../public/images/vector.png";
 import Heart from '../../../public/images/heart.png'
 import Cart from '../../../public/images/cart.png'
 import Search from '../../../public/images/search.png'
+import AccountImageAcc from '../../../public/images/AccauntImageAcc.png'
+import PackgImageAcc from '../../../public/images/packgImageAcc.png'
+import CancelImageAcc from '../../../public/images/cancelImageAcc.png'
+import StarImageAcc from '../../../public/images/starImageAcc.png'
+import LogoutImageAcc from '../../../public/images/logoutImageAcc.png'
 import Link from "next/link";
 
 const Header = () => {
@@ -31,7 +35,31 @@ const Header = () => {
             <Link href = "/" className={styles.nuvButons} >Home</Link>
             <Link href = "" className={styles.nuvButons} >About</Link>
             <Link href = "" className={styles.nuvButons} >Contact</Link>
-            <Link href = "/register" className={styles.nuvButons}>Sign Up</Link>
+            <div className={styles.dropdownAccount}>
+              <button className={styles.mainMenuAccButton}>Account</button>
+              <div className={styles.accDropdownChild}>
+                <div className={styles.containerForMenu}>
+                  <Image src = {AccountImageAcc} alt = "Your Account"/>
+                  <Link href="">Manage my account</Link>
+                </div>
+                <div className={styles.containerForMenu}>
+                  <Image src = {PackgImageAcc} alt = "Your order"/>
+                  <Link href="/dwdw">My order</Link>
+                </div>
+                <div className={styles.containerForMenu}>
+                  <Image src = {CancelImageAcc} alt = "Your cancellations"/>
+                  <Link href="">My cancellations</Link>
+                </div>
+                <div className={styles.containerForMenu}>
+                  <Image src = {StarImageAcc} alt = "Your reviews"/>
+                  <Link href="">My reviews</Link>
+                </div>
+                <div className={styles.containerForMenu}>
+                  <Image src = {LogoutImageAcc} alt = "Log out"/>
+                  <Link href="">Log out</Link>
+                </div>
+              </div>
+            </div>
           </div>
           <div className={styles.flex}>
             <div className={styles.inputContainer}>

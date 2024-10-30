@@ -5,6 +5,7 @@ import FlashSaleGoods from './components/flashSalesGoods/FlashSaleGoods';
 import Line from './components/line/Line';
 import Slider from './components/sliderOnHeader/Slider';
 import ViewAllButton from './components/viewAllButton/ViewAllButton';
+import BestSellProducts from "./components/bestSellProducts";
 
 
 function Home() {
@@ -18,6 +19,7 @@ function Home() {
       <Categories />
 
       <Line />
+      <BestSellProducts />;
     </div>
   );
 }
