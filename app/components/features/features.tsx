@@ -21,14 +21,16 @@ export const Features = () => {
   ];
 
   return (
-    <div className={styles.container}>
-      {features.map((feature, index) => (
-        <div key={index} className={styles.featureItem}>
-          <div className={`${styles.iconContainer} ${feature.className}`}></div>
-          <h3 className={styles.featureTitle}>{feature.title}</h3>
-          <p className={styles.featureDescription}>{feature.description}</p>
-        </div>
-      ))}
+    <div className={styles.section}>
+      <div className={styles.container}>
+        {features.map((feature, index) => (
+          <div key={index} className={styles.featureItem}>
+            <div className={`${styles.iconContainer} ${feature.className}`}></div>
+            <h3 className={styles.featureTitle}>{feature.title}</h3>
+            <p className={styles.featureDescription}>{feature.description}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
