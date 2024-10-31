@@ -79,6 +79,7 @@
     border: 1px solid gray; 
     background-color: white;
     border-radius: 5px;
+    padding: 20px;
 }
 
 .applyCouponBtn{

@@ -69,7 +69,7 @@ const Header = () => {
               </button>
             </div>
             <Image className={styles.icons} src={Heart} alt="heart"></Image>
-            <Image className={styles.icons} src={Cart} alt="cart"></Image>
+            <Link href="/cart"><Image className={styles.icons} src={Cart} alt="cart"></Image></Link>
           </div>
         </div>
 
