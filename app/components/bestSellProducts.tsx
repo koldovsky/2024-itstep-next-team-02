@@ -2,6 +2,7 @@ import CategoryMark from "../atoms/categoryMark";
 import RedButton from "../atoms/redButton";
 import BestSellingTimer from "./bestSellingTimer";
 import ProductCard from "./productCard";
+import AddToCartButton from "../components/addToCart/AddToCartButton";
 
 export default function BestSellProducts() {
   const products = [
