@@ -14,8 +14,7 @@ import "keen-slider/keen-slider.min.css";
 
 const AdaptiveHeight: KeenSliderPlugin = (slider) => {
   function updateHeight() {
-    slider.container.style.height =
-      slider.slides[slider.track.details.rel].offsetHeight + "px";
+    slider.container.style.height = slider.slides[slider.track.details.rel].offsetHeight + "px";
   }
   slider.on("created", updateHeight);
   slider.on("slideChanged", updateHeight);
@@ -66,11 +65,7 @@ export default function App() {
             <div className={styles.upperblock}>
               <div className={styles.containerForRectangleText}>
                 <div className={styles.upperblockRectangle}>
-                  <Image
-                    className={styles.rectangle}
-                    src={Rectangle}
-                    alt="Rectangle"
-                  ></Image>
+                  <Image className={styles.rectangle} src={Rectangle} alt="Rectangle"></Image>
                 </div>
                 <div className={styles.upperblockText}>Today's</div>
               </div>
@@ -78,15 +73,8 @@ export default function App() {
             <div className={styles.flashSalesTextTimerArrows}>
               <div className={styles.flashSalesText}>Flash Sales</div>
               <div className={styles.timer}>
-                <span className={styles.timerPart}>{timer.days} Days</span> :
-                <span className={styles.timerPart}>{timer.hours} Hours</span> :
-                <span className={styles.timerPart}>
-                  {timer.minutes} Minutes
-                </span>{" "}
-                :
-                <span className={styles.timerPart}>
-                  {timer.seconds} Seconds
-                </span>
+                <span className={styles.timerPart}>{timer.days} Days</span> :<span className={styles.timerPart}>{timer.hours} Hours</span> :
+                <span className={styles.timerPart}>{timer.minutes} Minutes</span> :<span className={styles.timerPart}>{timer.seconds} Seconds</span>
               </div>
 
               <div className={styles.arrows}>
@@ -109,12 +97,7 @@ export default function App() {
                     alt="right"
                     onClick={() => instanceRef.current?.next()}
                     style={{
-                      cursor:
-                        instanceRef.current &&
-                        currentSlide ===
-                          instanceRef.current.track.details.slides.length - 1
-                          ? "not-allowed"
-                          : "pointer",
+                      cursor: instanceRef.current && currentSlide === instanceRef.current.track.details.slides.length - 1 ? "not-allowed" : "pointer",
                     }}
                   />
                 </div>
@@ -125,62 +108,36 @@ export default function App() {
       </div>
 
       <div className={styles.containForSlider}>
-        <div
-          className={`${styles.navigationWrapper} ${
-            isVisible ? styles.visible : styles.hidden
-          }`}>
+        <div className={`${styles.navigationWrapper} ${isVisible ? styles.visible : styles.hidden}`}>
           <div ref={sliderRef} className={`${styles.keenSlider} keen-slider `}>
-            <div
-              className={`${styles.keenSlider__slide} ${styles.numberSlide1} keen-slider__slide number-slide1`}
-            >
-              <FlashSaleGoods />
-            </div>
-            
-            <div
-              className={`${styles.keenSlider__slide} ${styles.numberSlide2} keen-slider__slide number-slide2`}
-            >
+            <div className={`${styles.keenSlider__slide} ${styles.numberSlide1} keen-slider__slide number-slide1`}>
               <FlashSaleGoods />
             </div>
 
-            <div
-              className={`${styles.keenSlider__slide} ${styles.numberSlide3} keen-slider__slide number-slide3`}
-            >
+            <div className={`${styles.keenSlider__slide} ${styles.numberSlide2} keen-slider__slide number-slide2`}>
               <FlashSaleGoods />
             </div>
-            <div
-              className={`${styles.keenSlider__slide} ${styles.numberSlide4} keen-slider__slide number-slide4`}
-            >
+
+            <div className={`${styles.keenSlider__slide} ${styles.numberSlide3} keen-slider__slide number-slide3`}>
               <FlashSaleGoods />
             </div>
-            <div
-              className={`${styles.keenSlider__slide} ${styles.numberSlide5} keen-slider__slide number-slide5`}
-            >
+            <div className={`${styles.keenSlider__slide} ${styles.numberSlide4} keen-slider__slide number-slide4`}>
               <FlashSaleGoods />
             </div>
-            <div
-              className={`${styles.keenSlider__slide} ${styles.numberSlide6} keen-slider__slide number-slide6`}
-            >
+            <div className={`${styles.keenSlider__slide} ${styles.numberSlide5} keen-slider__slide number-slide5`}>
               <FlashSaleGoods />
-            </div> 
+            </div>
+            <div className={`${styles.keenSlider__slide} ${styles.numberSlide6} keen-slider__slide number-slide6`}>
+              <FlashSaleGoods />
+            </div>
           </div>
           {loaded && instanceRef.current && (
             <>
-              <Arrow
-                left
-                onClick={(e: any) =>
-                  e.stopPropagation() || instanceRef.current?.prev()
-                }
-                disabled={currentSlide === 0}
-              />
+              <Arrow left onClick={(e: any) => e.stopPropagation() || instanceRef.current?.prev()} disabled={currentSlide === 0} />
 
               <Arrow
-                onClick={(e: any) =>
-                  e.stopPropagation() || instanceRef.current?.next()
-                }
-                disabled={
-                  currentSlide ===
-                  instanceRef.current.track.details.slides.length - 1
-                }
+                onClick={(e: any) => e.stopPropagation() || instanceRef.current?.next()}
+                disabled={currentSlide === instanceRef.current.track.details.slides.length - 1}
               />
             </>
           )}
@@ -200,9 +157,7 @@ const Arrow: React.FC<ArrowProps> = ({ disabled, left, onClick }) => {
   return (
     <svg
       onClick={disabled ? undefined : onClick}
-      className={`${styles.arrow} ${
-        left ? styles.arrowLeft : styles.arrowRight
-      } ${disabled ? styles["arrow--disabled"] : ""}`}
+      className={`${styles.arrow} ${left ? styles.arrowLeft : styles.arrowRight} ${disabled ? styles["arrow--disabled"] : ""}`}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
     >

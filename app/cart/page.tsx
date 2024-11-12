@@ -9,12 +9,7 @@ const Cart = () => {
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <div className={styles.switcher}>
-          <NextBreadcrumb
-            homeElement={"Home"}
-            separator={<span> / </span>}
-            activeClasses="font-bold"
-            containerClasses="flex"
-            listClasses="hover:underline mx-2"
+          <NextBreadcrumb homeElement={"Home"} separator={<span> / </span>} activeClasses="font-bold" containerClasses="flex" listClasses="hover:underline mx-2"
             capitalizeLinks
           />
         </div>
@@ -30,21 +25,13 @@ const Cart = () => {
           <div className={styles.productsInCartHeader}>
             <div className={styles.productInfoHeaderText}>
               <div className={styles.cartImageContainer}>
-                <Image
-                  className={styles.cartImage}
-                  src={gamepad}
-                  alt="gamepad"
-                />
+                <Image className={styles.cartImage} src={"../../public/images/gamepad.png"} alt="gamepad" />
               </div>
               <div className={styles.cartGoodName}>H1 Gamepad</div>
             </div>
             <div className={styles.productInfoHeaderText}>$650</div>
             <div className={styles.productInfoHeaderText}>
-              <input
-                type="number"
-                className={styles.inputForQuantity}
-                defaultValue="1"
-              />
+              <input type="number" className={styles.inputForQuantity} defaultValue="1" />
             </div>
             <div className={styles.productInfoHeaderText}>$650</div>
           </div>
@@ -53,21 +40,13 @@ const Cart = () => {
           <div className={styles.productsInCartHeader}>
             <div className={styles.productInfoHeaderText}>
               <div className={styles.cartImageContainer}>
-                <Image
-                  className={styles.cartImage}
-                  src={gamepad}
-                  alt="gamepad"
-                />
+                <Image className={styles.cartImage} src={gamepad} alt="gamepad" />
               </div>
               <div className={styles.cartGoodName}>H1 Gamepad</div>
             </div>
             <div className={styles.productInfoHeaderText}>$550</div>
             <div className={styles.productInfoHeaderText}>
-              <input
-                type="number"
-                className={styles.inputForQuantity}
-                defaultValue="1"
-              />
+              <input type="number" className={styles.inputForQuantity} defaultValue="1" />
             </div>
             <div className={styles.productInfoHeaderText}>$1100</div>
           </div>
@@ -82,11 +61,7 @@ const Cart = () => {
         </div>
         <div className={styles.couponAndCartTotalContainer}>
           <div className={styles.couponCodeInputAndButton}>
-            <input
-              type="text"
-              placeholder="Coupon Code"
-              className={styles.couponCodeInput}
-            />
+            <input type="text" placeholder="Coupon Code" className={styles.couponCodeInput} />
             <button className={styles.applyCouponBtn}>Apply Coupon</button>
           </div>
           <div className={styles.cartTotalBox}>
@@ -105,9 +80,7 @@ const Cart = () => {
               <div>Total:</div>
               <div>$1750</div>
             </div>
-            <button className={styles.ProceesToCheckoutBtn}>
-              Procees to checkout
-            </button>
+            <button className={styles.ProceesToCheckoutBtn}>Procees to checkout</button>
           </div>
         </div>
       </div>
