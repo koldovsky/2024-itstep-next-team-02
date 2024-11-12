@@ -1,15 +1,8 @@
 import styles from "./page.module.css";
-import { useRouter } from 'next/router';
-import Image from "next/image";
 import Link from "next/link";
-import MainImage from "../../public/images/mainImageForLogin.png";
-import GoogleLogo from "../../public/images/GoogleLogo.png";
-import { useState } from 'react';
 import NextBreadcrumb from "../components/NextBreadcrumb/NextBreadcrumb";
 
 const page404 = () => {
-
-
 
   return (
     <>

@@ -1,13 +1,14 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { useKeenSlider, KeenSliderPlugin } from "keen-slider/react";
-import "keen-slider/keen-slider.min.css";
-import styles from "./Categories.module.css";
+
+import React, { useEffect, useState } from "react";
+import styles from "./ExploreOurProducts.module.css";
 import Image from "next/image";
 import Rectangle from "../../../public/images/upperblockRectangle.png";
 import newLeftArrow from "../../../public/images/new_arrow_left.png";
-import CategoriesGoods from "../categoriesGoods/CategoriesGoods";
 import newRightArrow from "../../../public/images/newArrowRight.png";
+import { useKeenSlider, KeenSliderPlugin } from "keen-slider/react";
+import ExploreOurProductsGoods from "../exploreOurProductGoods/ExploreOurProductsGoods";
+import "keen-slider/keen-slider.min.css";
 
 const AdaptiveHeight: KeenSliderPlugin = (slider) => {
   function updateHeight() {
@@ -58,11 +59,11 @@ export default function App() {
                     alt="Rectangle"
                   ></Image>
                 </div>
-                <div className={styles.upperblockText}>Categories</div>
+                <div className={styles.upperblockText}>Today&apos;s</div>
               </div>
             </div>
             <div className={styles.flashSalesTextTimerArrows}>
-              <div className={styles.flashSalesText}>Browse By Category</div>
+              <div className={styles.flashSalesText}>Flash Sales</div>
 
               <div className={styles.arrows}>
                 <div className={styles.arrowsIcons}>
@@ -98,46 +99,52 @@ export default function App() {
           </div>
         </div>
       </div>
-      
+
       <div className={styles.containForSlider}>
         <div
           className={`${styles.navigationWrapper} ${
             isVisible ? styles.visible : styles.hidden
-          }`}
-        >
+          }`}>
           <div ref={sliderRef} className={`${styles.keenSlider} keen-slider `}>
             <div
+              style={{height: '600px'}}
               className={`${styles.keenSlider__slide} ${styles.numberSlide1} keen-slider__slide number-slide1`}
             >
-              <CategoriesGoods />
+              <ExploreOurProductsGoods />
+              <ExploreOurProductsGoods />
             </div>
-
+            
             <div
               className={`${styles.keenSlider__slide} ${styles.numberSlide2} keen-slider__slide number-slide2`}
             >
-              <CategoriesGoods />
+              <ExploreOurProductsGoods />
+              <ExploreOurProductsGoods />
             </div>
 
             <div
               className={`${styles.keenSlider__slide} ${styles.numberSlide3} keen-slider__slide number-slide3`}
             >
-              <CategoriesGoods />
+              <ExploreOurProductsGoods />
+              <ExploreOurProductsGoods />
             </div>
             <div
               className={`${styles.keenSlider__slide} ${styles.numberSlide4} keen-slider__slide number-slide4`}
             >
-              <CategoriesGoods />
+              <ExploreOurProductsGoods />
+              <ExploreOurProductsGoods />
             </div>
             <div
               className={`${styles.keenSlider__slide} ${styles.numberSlide5} keen-slider__slide number-slide5`}
             >
-              <CategoriesGoods />
+              <ExploreOurProductsGoods />
+              <ExploreOurProductsGoods />
             </div>
             <div
               className={`${styles.keenSlider__slide} ${styles.numberSlide6} keen-slider__slide number-slide6`}
             >
-              <CategoriesGoods />
-            </div>
+              <ExploreOurProductsGoods />
+              <ExploreOurProductsGoods />
+            </div> 
           </div>
           {loaded && instanceRef.current && (
             <>

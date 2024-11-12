@@ -1,5 +1,5 @@
 
-import styles from './Features.module.css';
+import styles from './features.module.css';
 
 export const Features = () => {
   const features = [

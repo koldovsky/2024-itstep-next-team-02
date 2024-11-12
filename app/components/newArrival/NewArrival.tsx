@@ -1,6 +1,5 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
 import styles from './NewArrival.module.css'
 import Image from "next/image";
 import Rectangle from "../../../public/images/upperblockRectangle.png"

@@ -1,4 +1,3 @@
-import { URL } from 'next/dist/compiled/@edge-runtime/primitives/url';
 import styles from './footer.module.css';
 import Link from 'next/link';
 

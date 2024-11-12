@@ -1,11 +1,9 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import styles from "./flashSale.module.css";
+import styles from "./FlashSale.module.css";
 import Image from "next/image";
-import Rectangle from "../../../public/images/upperblockRectangle.png";
-import LeftArrow from "../../../public/images/Fill With Left Arrow.png";
-import RightArrow from "../../../public/images/Fill with Right Arrow.png";
+import Rectangle from "../../../public/images/upperblockRectangle.png"
 import newLeftArrow from "../../../public/images/new_arrow_left.png";
 import newRightArrow from "../../../public/images/newArrowRight.png";
 import { useKeenSlider, KeenSliderPlugin } from "keen-slider/react";
@@ -22,7 +20,7 @@ const AdaptiveHeight: KeenSliderPlugin = (slider) => {
 };
 
 export default function App() {
-  const [timer, setTimer] = useState<{
+  const [timer] = useState<{
     days: number;
     hours: number;
     minutes: number;
@@ -72,7 +70,7 @@ export default function App() {
                     alt="Rectangle"
                   ></Image>
                 </div>
-                <div className={styles.upperblockText}>Today's</div>
+                <div className={styles.upperblockText}>Today&apos;s</div>
               </div>
             </div>
             <div className={styles.flashSalesTextTimerArrows}>
@@ -167,16 +165,18 @@ export default function App() {
             <>
               <Arrow
                 left
-                onClick={(e: any) =>
-                  e.stopPropagation() || instanceRef.current?.prev()
-                }
+                onClick={(e: React.MouseEvent<SVGElement>) =>{
+                  e.stopPropagation()
+                  instanceRef.current?.prev()
+                }}
                 disabled={currentSlide === 0}
               />
 
               <Arrow
-                onClick={(e: any) =>
-                  e.stopPropagation() || instanceRef.current?.next()
-                }
+                onClick={(e: React.MouseEvent<SVGElement>) => {
+                  e.stopPropagation()
+                  instanceRef.current?.next()
+                }}
                 disabled={
                   currentSlide ===
                   instanceRef.current.track.details.slides.length - 1

@@ -1,6 +1,5 @@
 import styles from './newArrivalItems.module.css';
 import Link from 'next/link';
-import Image from 'next/image';
 
 
 export const NewArrivalItems = () => {
