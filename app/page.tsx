@@ -17,13 +17,11 @@ function Home() {
       <Line />
       <Categories />
       <Line />
-      <BestSellProducts /> 
+      <BestSellProducts />;
       <Line />
-      <ExploreOurProducts />
-      <Line />
-      <NewArrival />
-      <NewArrivalItems />
-      <Features />
+      <NewArrival/>
+      <NewArrivalItems/>
+      <Features/>
       <ViewAllButton />
     </div>
   );

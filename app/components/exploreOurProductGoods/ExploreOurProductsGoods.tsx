@@ -1,4 +1,4 @@
-import styles from "./ExploreOurProductGoods.module.css";
+import styles from "./exploreOurProductGoods.module.css";
 import AddToCartButton from "../addToCart/AddToCartButton";
 
 const ExploreOurProductsGoods = () => {

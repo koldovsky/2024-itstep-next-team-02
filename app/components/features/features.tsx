@@ -1,21 +1,20 @@
-
-import styles from './features.module.css';
+import styles from './Features.module.css';
 
 export const Features = () => {
   const features = [
     {
-      title: 'FREE AND FAST DELIVERY',
-      description: 'Free delivery for all orders over $140',
-      className: styles.deliveryIcon, 
+      title: "FREE AND FAST DELIVERY",
+      description: "Free delivery for all orders over $140",
+      className: styles.deliveryIcon,
     },
     {
-      title: '24/7 CUSTOMER SERVICE',
-      description: 'Friendly 24/7 customer support',
-      className: styles.customerServiceIcon, 
+      title: "24/7 CUSTOMER SERVICE",
+      description: "Friendly 24/7 customer support",
+      className: styles.customerServiceIcon,
     },
     {
-      title: 'MONEY BACK GUARANTEE',
-      description: 'We return money within 30 days',
+      title: "MONEY BACK GUARANTEE",
+      description: "We return money within 30 days",
       className: styles.moneyBackIcon,
     },
   ];

@@ -4,7 +4,6 @@ import AddToCartButton from "../addToCart/AddToCartButton";
 const FlashSaleGoods = () => {
   return (
     <div className={styles.container}>
-
       <div className={styles.good}>
         <div className={styles.frame}>
           <div className={styles.goodImage}>
@@ -58,7 +57,7 @@ const FlashSaleGoods = () => {
           <div className={styles.rating}>stars:88</div>
         </div>
       </div>
-      
+
       <div className={styles.good}>
         <div className={styles.frame}>
           <div className={styles.goodImage}>
