@@ -1,14 +1,17 @@
 import styles from "./FlashSaleGoods.module.css";
 import AddToCartButton from "../addToCart/AddToCartButton";
+import Gamepad from "@/public/images/goods/gamepad.png";
+import Image from "next/image";
 
 const FlashSaleGoods = () => {
   return (
     <div className={styles.container}>
       <div className={styles.good}>
         <div className={styles.frame}>
-          <div className={styles.goodImage}>
+          <div className="w-[100%]">
             <div className={styles.discount}>-40%</div>
           </div>
+          <Image src={Gamepad} alt="aodif" className={styles.goodImage} />
 
           <AddToCartButton />
         </div>
@@ -24,10 +27,10 @@ const FlashSaleGoods = () => {
 
       <div className={styles.good}>
         <div className={styles.frame}>
-          <div className={styles.goodImage}>
+          <div className="w-[100%]">
             <div className={styles.discount}>-40%</div>
           </div>
-
+          <Image src={Gamepad} alt="aodif" className={styles.goodImage} />
           <AddToCartButton />
         </div>
         <div className={styles.description}>
@@ -42,10 +45,10 @@ const FlashSaleGoods = () => {
 
       <div className={styles.good}>
         <div className={styles.frame}>
-          <div className={styles.goodImage}>
+          <div className="w-[100%]">
             <div className={styles.discount}>-40%</div>
           </div>
-
+          <Image src={Gamepad} alt="aodif" className={styles.goodImage} />
           <AddToCartButton />
         </div>
         <div className={styles.description}>
@@ -60,10 +63,10 @@ const FlashSaleGoods = () => {
 
       <div className={styles.good}>
         <div className={styles.frame}>
-          <div className={styles.goodImage}>
+          <div className="w-[100%]">
             <div className={styles.discount}>-40%</div>
           </div>
-
+          <Image src={Gamepad} alt="aodif" className={styles.goodImage} />
           <AddToCartButton />
         </div>
         <div className={styles.description}>
