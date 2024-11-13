@@ -1,15 +1,18 @@
 'use client'
 import styles from "./page.module.css";
+import { useRouter } from 'next/navigation';
 import Image from "next/image";
 import Link from "next/link";
 import MainImage from "../../public/images/mainImageForLogin.png";
 import GoogleLogo from "../../public/images/GoogleLogo.png";
 import { useState } from 'react';
 
-const Login = () => {
+
+const Register = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const router = useRouter();
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
@@ -23,7 +26,7 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!name || !email || !password) {
@@ -33,7 +36,32 @@ const Login = () => {
     console.log('Name:', name);
     console.log('Email:', email);
     console.log('Password:', password);
+
+    await createNewUser();
+    
   };
+
+  async function createNewUser() {
+    const response = await fetch('/api/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        fullName: name,
+        email: email,
+        password: password
+      }),
+    });
+    if (response.status === 200 ){
+      console.log("Added to DB")
+      router.push('/'); 
+      // FIXME: КОЛИ ЮЗЕР ЗАЛОГІНИВСЯ АБО ЗАРЕГАВСЯ, ДОБАВЛЯТИ ТОКЕН В БД ТА СОБІ В КУКІСИ, ТА СТВОРИТИ МІД ВЕІР, ЯКИЙ БУДЕ  ПРОВАЛЮВАТИ ЯКЩО ЮЗЕР НЕ ЛОГІНЕНИЙ https://stackoverflow.com/questions/74573751/how-do-i-check-if-a-user-is-logged-in-on-every-request-in-next-js 
+    }
+    if (response.status === 500 ){
+      console.log("not Added to DB")
+    }
+  }
 
   return (
     <>
@@ -75,7 +103,7 @@ const Login = () => {
                 onChange={handlePasswordChange}
               />
               
-              <button className={styles.createAccountButton} type="submit">Create Account</button>
+              <button className={styles.createAccountButton} type="submit" disabled={!name || !email || !password}>Create Account</button>
               <button className={styles.createAccountButtonGoogle} type="button" disabled={!name || !email || !password}>
                 <Image src={GoogleLogo} alt="Google Logo" className={styles.googleLogo} />
                 Sign up with Google
@@ -96,4 +124,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
