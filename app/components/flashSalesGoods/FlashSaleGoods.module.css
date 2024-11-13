@@ -21,8 +21,6 @@
 }
 
 .goodImage{
-    width: 80%;
-    height: 80%;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;

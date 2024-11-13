@@ -74,63 +74,63 @@ async function up() {
     data: [
       {
         name: "Bag",
-        imageUrl: "@/public/images/goods/bag.png",
+        imageUrl: "/images/goods/bag.png",
         rating: 10,
         reviews: 100,
         categoryId: 2,
       },
       {
         name: "Chair",
-        imageUrl: "@/public/images/goods/chair.png",
+        imageUrl: "/images/goods/chair.png",
         categoryId: 2,
         rating: 10,
         reviews: 100,
       },
       {
         name: "Coat",
-        imageUrl: "@/public/images/goods/coat.png",
+        imageUrl: "/images/goods/coat.png",
         rating: 10,
         reviews: 100,
         categoryId: 2,
       },
       {
         name: "Cooler",
-        imageUrl: "@/public/images/goods/cooler.png",
+        imageUrl: "/images/goods/cooler.png",
         rating: 10,
         reviews: 100,
         categoryId: 3,
       },
       {
         name: "Gamepad",
-        imageUrl: "@/public/images/goods/gamepad.png",
+        imageUrl: "/images/goods/gamepad.png",
         rating: 10,
         reviews: 100,
         categoryId: 3,
       },
       {
         name: "Keyboard",
-        imageUrl: "@/public/images/goods/keyboard.png",
+        imageUrl: "/images/goods/keyboard.png",
         rating: 10,
         reviews: 100,
         categoryId: 3,
       },
       {
         name: "Main Gamepad",
-        imageUrl: "@/public/images/goods/main-gamepad.png",
+        imageUrl: "/images/goods/main-gamepad.png",
         rating: 10,
         reviews: 100,
         categoryId: 3,
       },
       {
         name: "Monitor",
-        imageUrl: "@/public/images/goods/monitor.png",
+        imageUrl: "/images/goods/monitor.png",
         rating: 10,
         reviews: 100,
         categoryId: 4,
       },
       {
         name: "Shell",
-        imageUrl: "@/public/images/goods/shell.png",
+        imageUrl: "/images/goods/shell.png",
         rating: 10,
         reviews: 100,
         categoryId: 4,
@@ -141,7 +141,7 @@ async function up() {
   const gamepad1 = await prisma.product.create({
     data: {
       name: "Gamepad view 1",
-      imageUrl: "@/public/images/goods/gamepad-view-1.png",
+      imageUrl: "/images/goods/gamepad-view-1.png",
       rating: 10,
       reviews: 100,
       categoryId: 1,
@@ -151,7 +151,7 @@ async function up() {
   const gamepad2 = await prisma.product.create({
     data: {
       name: "Gamepad view 2",
-      imageUrl: "@/public/images/goods/gamepad-view-2.png",
+      imageUrl: "/images/goods/gamepad-view-2.png",
       rating: 10,
       reviews: 100,
       categoryId: 1,
@@ -161,7 +161,7 @@ async function up() {
   const gamepad3 = await prisma.product.create({
     data: {
       name: "Gamepad view 3",
-      imageUrl: "@/public/images/goods/gamepad-view-3.png",
+      imageUrl: "/images/goods/gamepad-view-3.png",
       rating: 10,
       reviews: 100,
       categoryId: 1,
@@ -171,7 +171,7 @@ async function up() {
   const gamepad4 = await prisma.product.create({
     data: {
       name: "Gamepad view 4",
-      imageUrl: "@/public/images/goods/gamepad-view-4.png",
+      imageUrl: "/images/goods/gamepad-view-4.png",
       rating: 10,
       reviews: 100,
       categoryId: 1,

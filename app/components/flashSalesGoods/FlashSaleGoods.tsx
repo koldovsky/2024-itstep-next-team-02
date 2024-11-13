@@ -1,82 +1,87 @@
+'use client'
+
 import styles from "./FlashSaleGoods.module.css";
 import AddToCartButton from "../addToCart/AddToCartButton";
-import Gamepad from "@/public/images/goods/gamepad.png";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const FlashSaleGoods = () => {
+  const [goods, setGoods] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);  // State to track current page
+
+  const itemsPerPage = 4;
+
+  useEffect(() => {
+    const fetchGoods = async () => {
+      try {
+        const response = await fetch("/api/goods"); 
+        if (!response.ok) {
+          throw new Error("Failed to fetch goods");
+        }
+        const data = await response.json();
+        setGoods(data.goods); 
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchGoods(); 
+  }, []);
+
+  // Slice the goods array to only show the current page items
+  const displayedGoods = goods.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage);
+
+  // Handle Next Arrow Click
+  const handleNext = () => {
+    if ((currentPage + 1) * itemsPerPage < goods.length) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  // Handle Prev Arrow Click
+  const handlePrev = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
   return (
     <div className={styles.container}>
-      <div className={styles.good}>
-        <div className={styles.frame}>
-          <div className="w-[100%]">
-            <div className={styles.discount}>-40%</div>
+      {displayedGoods.map((good, index) => (
+        <div key={index} className={styles.good}>
+          <div className={styles.frame}>
+            <div className="w-[100%]">
+              <div className={styles.discount}>-40%</div>
+            </div>
+            <Image src={good["imageUrl"]} alt={good["name"]} className={styles.goodImage} fill/>
+            <AddToCartButton />
           </div>
-          <Image src={Gamepad} alt="aodif" className={styles.goodImage} />
+          <div className={styles.description}>
+            <div className={styles.goodName}>{good["name"]}</div>
+            <div className={styles.goodPrice}>
+              <div className={styles.newPrice}>${good["price"]}</div>
+              {/* <div className={styles.oldPrice}>${good.oldPrice}</div> */}
+            </div>
+            <div className={styles.rating}>stars: {good["rating"]}</div>
+          </div>
+        </div>
+      ))}
 
-          <AddToCartButton />
-        </div>
-        <div className={styles.description}>
-          <div className={styles.goodName}>HAVIT HV-G92 Gamepad</div>
-          <div className={styles.goodPrice}>
-            <div className={styles.newPrice}>$120</div>
-            <div className={styles.oldPrice}>$160</div>
-          </div>
-          <div className={styles.rating}>stars:88</div>
-        </div>
-      </div>
-
-      <div className={styles.good}>
-        <div className={styles.frame}>
-          <div className="w-[100%]">
-            <div className={styles.discount}>-40%</div>
-          </div>
-          <Image src={Gamepad} alt="aodif" className={styles.goodImage} />
-          <AddToCartButton />
-        </div>
-        <div className={styles.description}>
-          <div className={styles.goodName}>AK-900 Wired Keyboard</div>
-          <div className={styles.goodPrice}>
-            <div className={styles.newPrice}>$960</div>
-            <div className={styles.oldPrice}>$160</div>
-          </div>
-          <div className={styles.rating}>stars:88</div>
-        </div>
-      </div>
-
-      <div className={styles.good}>
-        <div className={styles.frame}>
-          <div className="w-[100%]">
-            <div className={styles.discount}>-40%</div>
-          </div>
-          <Image src={Gamepad} alt="aodif" className={styles.goodImage} />
-          <AddToCartButton />
-        </div>
-        <div className={styles.description}>
-          <div className={styles.goodName}>IPS LCD Gaming Monitor</div>
-          <div className={styles.goodPrice}>
-            <div className={styles.newPrice}>$370</div>
-            <div className={styles.oldPrice}>$160</div>
-          </div>
-          <div className={styles.rating}>stars:88</div>
-        </div>
-      </div>
-
-      <div className={styles.good}>
-        <div className={styles.frame}>
-          <div className="w-[100%]">
-            <div className={styles.discount}>-40%</div>
-          </div>
-          <Image src={Gamepad} alt="aodif" className={styles.goodImage} />
-          <AddToCartButton />
-        </div>
-        <div className={styles.description}>
-          <div className={styles.goodName}>S-Series Comfort Chair</div>
-          <div className={styles.goodPrice}>
-            <div className={styles.newPrice}>$120</div>
-            <div className={styles.oldPrice}>$160</div>
-          </div>
-          <div className={styles.rating}>stars:88</div>
-        </div>
+      <div className={styles.pagination}>
+        <button
+          className={styles.arrow}
+          onClick={handlePrev}
+          disabled={currentPage === 0}
+        >
+          &lt; Prev
+        </button>
+        <button
+          className={styles.arrow}
+          onClick={handleNext}
+          disabled={(currentPage + 1) * itemsPerPage >= goods.length}
+        >
+          Next &gt;
+        </button>
       </div>
     </div>
   );
