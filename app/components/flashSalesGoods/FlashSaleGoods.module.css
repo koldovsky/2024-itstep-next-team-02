@@ -17,7 +17,7 @@
 }
 
 .frame:hover .addToCartButton {
-    opacity: 1; /* Зміна прозорості на 0 при наведенні на .frame */
+    opacity: 1;
 }
 
 .goodImage{
