@@ -6,9 +6,9 @@ import { useKeenSlider, KeenSliderPlugin } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import Image from "next/image";
 import Link from "next/link";
-import Phone from "../../../public/images/phone.png";
-import appleLogo from "../../../public/images/appleLogo.png";
-import shopNowButton from "../../../public/images/shopeNowButton.png";
+import Phone from "@/public/images/phone.png";
+import appleLogo from "@/public/images/apple-logo.png";
+import shopNowButton from "@/public/images/shope-now-button.png";
 
 const AdaptiveHeight: KeenSliderPlugin = (slider) => {
   function updateHeight() {

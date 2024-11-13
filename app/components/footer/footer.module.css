@@ -63,7 +63,7 @@
 }
 
 .gridItemQRCode{
-    background-image: url('../../../public/images/qrCode.png');
+    background-image: url('../../../public/images/qr-code.png');
     background-size: cover; 
     background-position: center; 
     width: 100px;
@@ -72,7 +72,7 @@
 }
 
 .gridItemAppStore{
-    background-image: url('../../../public/images/appStoreLogo.png');
+    background-image: url('../../../public/images/app-store-logo.png');
     background-size: cover; 
     background-position: center; 
     width: 135px;
@@ -81,7 +81,7 @@
 }
 
 .gridItemPlayMarket{
-    background-image: url('../../../public/images/playMarketLogo.png');
+    background-image: url('../../../public/images/play-market-logo.png');
     background-size: cover; 
     background-position: center; 
     width: 135px;
@@ -131,7 +131,7 @@
     cursor: pointer;
     width: 30px;
     height: 30px;
-    background-image: url('../../../public/images/buttonForInputInFooter.png'); 
+    background-image: url('../../../public/images/button-for-input-in-footer.png'); 
     background-repeat: no-repeat;
     background-size: contain; 
     background-position: center;
@@ -142,7 +142,7 @@
 }
 
 .facebookLogoInFooter{
-    background-image: url('../../../public/images/facebookLogoInFooter.png'); 
+    background-image: url('../../../public/images/facebook-logo-in-footer.png'); 
     background-repeat: no-repeat;
     background-size: contain; 
     background-position: center;
@@ -151,7 +151,7 @@
 }
 
 .instagramLogoInFooter{
-    background-image: url('../../../public/images/instagramLogoInFooter.png'); 
+    background-image: url('../../../public/images/instagram-logo-in-footer.png'); 
     background-repeat: no-repeat;
     background-size: contain; 
     background-position: center;
@@ -160,7 +160,7 @@
 }
 
 .inLogoInFooter{
-    background-image: url('../../../public/images/inLogoInFooter.png'); 
+    background-image: url('../../../public/images/in-logo-in-footer.png'); 
     background-repeat: no-repeat;
     background-size: contain; 
     background-position: center;
@@ -170,7 +170,7 @@
 }
 
 .twiterLogoInFooter{
-    background-image: url('../../../public/images/twiterLogoInFooter.png'); 
+    background-image: url('../../../public/images/twitter-logo-in-footer.png'); 
     background-repeat: no-repeat;
     background-size: contain; 
     background-position: center;

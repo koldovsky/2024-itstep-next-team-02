@@ -2,7 +2,7 @@
 import styles from "./page.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import MainImage from "../../public/images/mainImageForLogin.png";
+import MainImage from "@/public/images/main-image-for-login.png";
 import { useState } from 'react';
 
 const Login = () => {

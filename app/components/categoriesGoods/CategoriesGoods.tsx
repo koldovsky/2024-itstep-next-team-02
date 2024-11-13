@@ -1,11 +1,11 @@
 import styles from "./CategoriesGoods.module.css";
-import Phone from "../../../public/images/phoneLogoForCategories.png";
 import Image from "next/image";
-import PC from "../../../public/images/PCLogoForCategories.png";
-import Camera from "../../../public/images/photoLogoForCategories.png";
-import Watch from "../../../public/images/watchLogoForCategories.png";
-import HeadPhones from "../../../public/images/headphonesLogoForCategories.png";
-import Gaming from "../../../public/images/gamepadLogoForCategories.png";
+import Phone from "@/public/images/phone-logo-for-categories.png";
+import PC from "@/public/images/pc-logo-for-categories.png";
+import Camera from "@/public/images/photo-logo-for-categories.png";
+import Watch from "@/public/images/watch-logo-for-categories.png";
+import HeadPhones from "@/public/images/headphones-logo-for-categories.png";
+import Gaming from "@/public/images/gamepad-logo-for-categories.png";
 
 const CategoriesGoods = () => {
   return (

@@ -34,12 +34,14 @@ async function up() {
   await prisma.user.createMany({
     data: [
       {
+        token: "11111",
         fullName: "Test Admin",
         email: "user@gmail.com",
         password: hashSync("111111", 10),
         role: "USER",
       },
       {
+        token: "11111",
         fullName: "Test User",
         email: "admin@@gmail.com",
         password: hashSync("111111", 10),
@@ -71,124 +73,75 @@ async function up() {
   await prisma.product.createMany({
     data: [
       {
-        name: "Gaming Headset",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
+        name: "Bag",
+        imageUrl: "/images/goods/bag.png",
         rating: 10,
         reviews: 100,
         categoryId: 2,
       },
       {
-        name: "Mechanical Keyboard",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
+        name: "Chair",
+        imageUrl: "/images/goods/chair.png",
         categoryId: 2,
         rating: 10,
         reviews: 100,
       },
       {
-        name: "Gaming Mouse",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
+        name: "Coat",
+        imageUrl: "/images/goods/coat.png",
         rating: 10,
         reviews: 100,
         categoryId: 2,
       },
       {
-        name: "Gaming Chair",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
+        name: "Cooler",
+        imageUrl: "/images/goods/cooler.png",
         rating: 10,
         reviews: 100,
         categoryId: 3,
       },
       {
-        name: "VR Headset",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
+        name: "Gamepad",
+        imageUrl: "/images/goods/gamepad.png",
         rating: 10,
         reviews: 100,
         categoryId: 3,
       },
       {
-        name: "Gaming Console",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
+        name: "Keyboard",
+        imageUrl: "/images/goods/keyboard.png",
         rating: 10,
         reviews: 100,
         categoryId: 3,
       },
       {
-        name: "Controller",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
+        name: "Main Gamepad",
+        imageUrl: "/images/goods/main-gamepad.png",
         rating: 10,
         reviews: 100,
         categoryId: 3,
       },
       {
-        name: "Gaming Monitor",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
-        rating: 10,
-        reviews: 100,
-        categoryId: 3,
-      },
-      {
-        name: "Graphics Card",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
+        name: "Monitor",
+        imageUrl: "/images/goods/monitor.png",
         rating: 10,
         reviews: 100,
         categoryId: 4,
       },
       {
-        name: "Processor",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
+        name: "Shell",
+        imageUrl: "/images/goods/shell.png",
         rating: 10,
         reviews: 100,
         categoryId: 4,
-      },
-      {
-        name: "RAM",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
-        rating: 10,
-        reviews: 100,
-        categoryId: 4,
-      },
-      {
-        name: "Hard Drive",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
-        rating: 10,
-        reviews: 100,
-        categoryId: 4,
-      },
-      {
-        name: "Gaming Laptop",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
-        rating: 10,
-        reviews: 100,
-        categoryId: 5,
-      },
-      {
-        name: "Gaming PC",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
-        rating: 10,
-        reviews: 100,
-        categoryId: 5,
-      },
-      {
-        name: "Cooling System",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
-        rating: 10,
-        reviews: 100,
-        categoryId: 5,
-      },
-      {
-        name: "Power Supply Unit",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
-        rating: 10,
-        reviews: 100,
-        categoryId: 5,
       },
     ],
   });
 
   const gamepad1 = await prisma.product.create({
     data: {
-      name: "Game Pad test1",
-      imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
+      name: "Gamepad view 1",
+      imageUrl: "/images/goods/gamepad-view-1.png",
       rating: 10,
       reviews: 100,
       categoryId: 1,
@@ -197,8 +150,8 @@ async function up() {
 
   const gamepad2 = await prisma.product.create({
     data: {
-      name: "Game Pad test2",
-      imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
+      name: "Gamepad view 2",
+      imageUrl: "/images/goods/gamepad-view-2.png",
       rating: 10,
       reviews: 100,
       categoryId: 1,
@@ -207,8 +160,18 @@ async function up() {
 
   const gamepad3 = await prisma.product.create({
     data: {
-      name: "Game Pad test3",
-      imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
+      name: "Gamepad view 3",
+      imageUrl: "/images/goods/gamepad-view-3.png",
+      rating: 10,
+      reviews: 100,
+      categoryId: 1,
+    },
+  });
+
+  const gamepad4 = await prisma.product.create({
+    data: {
+      name: "Gamepad view 4",
+      imageUrl: "/images/goods/gamepad-view-4.png",
       rating: 10,
       reviews: 100,
       categoryId: 1,
@@ -231,6 +194,10 @@ async function up() {
       generateProductItem({ productId: gamepad3.id, color: "red", size: "S", description: 'a;sdfioaogagd'}),
       generateProductItem({ productId: gamepad3.id, color: "green", size: "L", discountPercent: 0.7, description: 'a;sdfioaogagd'}),
       generateProductItem({ productId: gamepad3.id, color: "blue", size: "M", discountPercent: 0.5, description: 'a;sdfioaogagd'}),
+      // Game Pad test4 variations"
+      generateProductItem({ productId: gamepad4.id, color: "red", size: "S", description: 'a;sdfioaogagd'}),
+      generateProductItem({ productId: gamepad4.id, color: "green", size: "L", discountPercent: 0.7, description: 'a;sdfioaogagd'}),
+      generateProductItem({ productId: gamepad4.id, color: "blue", size: "M", discountPercent: 0.5, description: 'a;sdfioaogagd'}),
 
       // Game Pad test3"
       generateProductItem({ productId: 1, description: 'a;sdfioaogagd' }),

@@ -1,16 +1,16 @@
 import React from "react";
 import styles from "./page.module.css";
 import Image from "next/image";
-import Gamepad1 from "../../../public/images/gamepad_view_1.png";
-import Gamepad from "@/public/images/mainGamepad.png";
-import Stars from "../../../public/images/stars.png";
-import BlueCircle from "../../../public/images/blueCircle.png";
-import RedCircle from "../../../public/images/redCircle.png";
-import Plus from "../../../public/images/plus.png";
-import Minus from "../../../public/images/minus.png";
-import Heart from "../../../public/images/heart.png";
-import Delivery from "../../../public/images/delivery.png";
-import Return from "../../../public/images/return.png";
+import Gamepad1 from "@/public/images/goods/gamepad_view_1.png";
+import Gamepad from "@/public/images/goods/main-gamepad.png";
+import Stars from "@/public/images/stars.png";
+import BlueCircle from "@/public/images/blue-circle.png";
+import RedCircle from "@/public/images/red-circle.png";
+import Plus from "@/public/images/plus.png";
+import Minus from "@/public/images/minus.png";
+import Heart from "@/public/images/heart.png";
+import Delivery from "@/public/images/delivery.png";
+import Return from "@/public/images/return.png";
 
 interface GoodsPageProps {
   params: {

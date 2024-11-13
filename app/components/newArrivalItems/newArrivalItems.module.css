@@ -80,7 +80,7 @@
 }
 
 .largestItemInGrid{
-  background-image: url('../../../public/images/playStation5.png');
+  background-image: url('../../../public/images/playstation5.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -102,7 +102,7 @@
 }
 
 .longItem{
-  background-image: url('../../../public/images/womenWithHat.jpg');
+  background-image: url('../../../public/images/women-with-hat.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -118,7 +118,7 @@
 }
 
 .shortItemLeft{
-  background-image: url('../../../public/images/speakersAmazon.png');
+  background-image: url('../../../public/images/speakers-amazon.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -134,7 +134,7 @@
 }
 
 .shortItemRight{
-  background-image: url('../../../public/images/parfumeGucci.png');
+  background-image: url('../../../public/images/parfume-gucci.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

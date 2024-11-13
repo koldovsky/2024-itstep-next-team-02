@@ -13,6 +13,7 @@
     align-items: center;
     position: relative;
     z-index: 1;
+    flex-direction: column;
 }
 
 .frame:hover .addToCartButton {
@@ -20,9 +21,6 @@
 }
 
 .goodImage{
-    background-image: url('../../../public/images/gamepad.png');
-    width: 80%;
-    height: 80%;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
@@ -38,6 +36,7 @@
     align-items: center;
     justify-content: center;
     display: flex;
+    margin-left: 20px;
 }
 
 
