@@ -1,13 +1,7 @@
-import styles from "./AddToCartButton.module.css"
+import styles from "./AddToCartButton.module.css";
 
 const AddToCartButton = () => {
-    
-    return (
+  return <button className={styles.addToCartButton}>Add To Cart</button>;
+};
 
-        <button className={styles.addToCartButton}>Add To Cart</button>
-                      
-    );
-  };
-  
-  export default AddToCartButton;
-  
+export default AddToCartButton;

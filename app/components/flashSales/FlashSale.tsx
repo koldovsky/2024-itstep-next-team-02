@@ -3,9 +3,9 @@
 import React, { useEffect, useState } from "react";
 import styles from "./FlashSale.module.css";
 import Image from "next/image";
-import Rectangle from "../../../public/images/upperblockRectangle.png"
-import newLeftArrow from "../../../public/images/new_arrow_left.png";
-import newRightArrow from "../../../public/images/newArrowRight.png";
+import Rectangle from "@/public/images/upper-block-rectangle.png"
+import newLeftArrow from "@/public/images/new-arrow-left.png";
+import newRightArrow from "@/public/images/new-arrow-right.png";
 import { useKeenSlider, KeenSliderPlugin } from "keen-slider/react";
 import FlashSaleGoods from "../../components/flashSalesGoods/FlashSaleGoods";
 import "keen-slider/keen-slider.min.css";

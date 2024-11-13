@@ -1,11 +1,11 @@
 'use client'
 import styles from "./page.module.css";
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 import Image from "next/image";
 import Link from "next/link";
-import MainImage from "../../public/images/mainImageForLogin.png";
-import GoogleLogo from "../../public/images/GoogleLogo.png";
-import { useState } from 'react';
+import MainImage from "@/public/images/main-image-for-login.png";
+import GoogleLogo from "@/public/images/google-logo.png";
 
 
 const Register = () => {

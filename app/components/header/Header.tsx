@@ -1,14 +1,14 @@
 import styles from "./Header.module.css";
 import Image from "next/image";
-import Vector from "../../../public/images/vector.png";
-import Heart from "../../../public/images/heart.png";
-import Cart from "../../../public/images/cart.png";
-import Search from "../../../public/images/search.png";
-import AccountImageAcc from "../../../public/images/AccauntImageAcc.png";
-import PackgImageAcc from "../../../public/images/packgImageAcc.png";
-import CancelImageAcc from "../../../public/images/cancelImageAcc.png";
-import StarImageAcc from "../../../public/images/starImageAcc.png";
-import LogoutImageAcc from "../../../public/images/logoutImageAcc.png";
+import Vector from "@/public/images/vector.png";
+import Heart from "@/public/images/heart.png";
+import Cart from "@/public/images/cart.png";
+import Search from "@/public/images/search.png";
+import AccountImageAcc from "@/public/images/account-image.png";
+import PackgImageAcc from "@/public/images/packg-image-acc.png";
+import CancelImageAcc from "@/public/images/cancel-image-acc.png";
+import StarImageAcc from "@/public/images/star-image-acc.png";
+import LogoutImageAcc from "@/public/images/log-out-image-acc.png";
 import Link from "next/link";
 
 const Header = () => {

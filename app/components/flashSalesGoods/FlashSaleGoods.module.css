@@ -20,7 +20,6 @@
 }
 
 .goodImage{
-    background-image: url('../../../public/images/gamepad.png');
     width: 80%;
     height: 80%;
     background-repeat: no-repeat;
