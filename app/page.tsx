@@ -13,7 +13,8 @@ function Home() {
   return (
     <div>
       <Slider />
-      <FlashSale />
+      {/* <FlashSale /> */}
+      <BestSellProducts />;
       <Line />
       <Categories />
       <Line />

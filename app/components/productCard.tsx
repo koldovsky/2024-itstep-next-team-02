@@ -4,8 +4,7 @@ import Image from "next/image"
 interface Product {
   name: string;
   price: number;
-  oldPrice: number;
-  imgSrc: string;
+  imageUrl: string;
   rating: number;
   reviews: number;
 }
@@ -20,7 +19,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <div className="flex flex-col gap-y-2 w-full">
       <figure className="relative flex justify-center items-center w-full h-[300px] bg-[#F5F5F5]">
-        <Image src={product.imgSrc} alt={product.name} width={300} height={300} />
+        <Image src={product.imageUrl} alt={product.name} width={300} height={300} />
         <div className="absolute top-2 right-2 bg-white rounded-full p-1">
           <RiHeartLine />
         </div>

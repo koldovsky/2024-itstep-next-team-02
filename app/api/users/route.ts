@@ -14,8 +14,8 @@ export async function POST(req: NextRequest) {
   data.password = hashSync(data.password, 10);
 
   const user = await prisma.user.create({
-    data
+    data,
   });
 
-  return NextResponse.json(user)
+  return NextResponse.json(user);
 }
