@@ -30,9 +30,9 @@ export default function ProductCard({ product }: ProductCardProps) {
       <figcaption className="flex flex-col gap-y-1">
         <span className="text-[20px] font-semibold">{product.name}</span>
         <div className="flex flex-row items-center gap-x-2">
-          <span className="text-[#DB4444] font-semibold">{product.price}$</span>
+          <span className="text-[#DB4444] font-semibold">240$</span>
           <span className="text-[#808080] font-semibold line-through text-[14px]">
-            {product.oldPrice}$
+            500$
           </span>
         </div>
         <div className="flex items-center">
