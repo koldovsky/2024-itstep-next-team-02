@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 const FlashSaleGoods = () => {
   const [goods, setGoods] = useState([]);
-  const [currentPage, setCurrentPage] = useState(0);  // State to track current page
+  const [currentPage, setCurrentPage] = useState(0);  
 
   const itemsPerPage = 4;
 
@@ -28,17 +28,14 @@ const FlashSaleGoods = () => {
     fetchGoods(); 
   }, []);
 
-  // Slice the goods array to only show the current page items
   const displayedGoods = goods.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage);
 
-  // Handle Next Arrow Click
   const handleNext = () => {
     if ((currentPage + 1) * itemsPerPage < goods.length) {
       setCurrentPage(currentPage + 1);
     }
   };
 
-  // Handle Prev Arrow Click
   const handlePrev = () => {
     if (currentPage > 0) {
       setCurrentPage(currentPage - 1);

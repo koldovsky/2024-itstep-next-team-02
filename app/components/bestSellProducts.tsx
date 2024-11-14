@@ -51,8 +51,8 @@ export default function BestSellProducts() {
       <div className="flex flex-col w-[70%]">
         <CategoryMark categoryName="This Month" />
         <div className="flex justify-between items-center py-6">
-          <span className="text-[28px] font-semibold">Best Selling Products</span>
           <RedButton text="View All" /> 
+          <span className="text-[28px] font-semibold">Best Selling Products</span>
           <div className="flex ">
             <Image className={styles.arrowsIcons} src={newLeftArrow} alt="left" onClick={handlePrev} />
             <Image className={styles.arrowsIcons} src={newRightArrow} alt="right" onClick={handleNext} />

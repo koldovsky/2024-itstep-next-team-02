@@ -59,7 +59,7 @@ export default function App() {
       setTimer(calculateRemainingTime);
     }, 1000);
 
-    return () => clearInterval(timerId); // Очищаємо таймер при відмонтуванні компонента
+    return () => clearInterval(timerId);
   }, []);
 
   useEffect(() => {
