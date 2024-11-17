@@ -2,34 +2,6 @@ import { Prisma } from "@prisma/client";
 import { prisma } from "./prisma-client";
 import { hashSync } from "bcrypt";
 
-const randomNumber = (min: number, max: number) => {
-  return Math.floor(Math.random() * (max - min) * 10 + min * 10) / 10;
-};
-
-const generateProductItem = ({
-  productId,
-  size,
-  color,
-  discountPercent,
-  description,
-}: {
-  productId: number;
-  size?: "S" | "M" | "L";
-  color?: "red" | "blue" | "green";
-  discountPercent?: number;
-  description: string;
-}) => {
-  return {
-    productId,
-    price: randomNumber(100, 600),
-    size,
-    color,
-    inStock: randomNumber(10, 100),
-    discountPercent,
-    description,
-  } as Prisma.ProductItemUncheckedCreateInput;
-};
-
 async function up() {
   await prisma.user.createMany({
     data: [
@@ -77,20 +49,32 @@ async function up() {
         imageUrl: "/images/goods/bag.png",
         rating: 10,
         reviews: 100,
+        price: 50,
+        inStock: 30,
+        description: "Stylish and spacious bag for everyday use.",
+        discountPercent: 10,
         categoryId: 2,
       },
       {
         name: "Chair",
         imageUrl: "/images/goods/chair.png",
-        categoryId: 2,
         rating: 10,
         reviews: 100,
+        price: 120,
+        inStock: 20,
+        description: "Comfortable and ergonomic chair for your home or office.",
+        discountPercent: 15,
+        categoryId: 2,
       },
       {
         name: "Coat",
         imageUrl: "/images/goods/coat.png",
         rating: 10,
         reviews: 100,
+        price: 200,
+        inStock: 10,
+        description: "Warm and stylish coat, perfect for winter.",
+        discountPercent: 20,
         categoryId: 2,
       },
       {
@@ -98,6 +82,10 @@ async function up() {
         imageUrl: "/images/goods/cooler.png",
         rating: 10,
         reviews: 100,
+        price: 80,
+        inStock: 25,
+        description: "High-performance cooler for your PC.",
+        discountPercent: 5,
         categoryId: 3,
       },
       {
@@ -105,6 +93,10 @@ async function up() {
         imageUrl: "/images/goods/gamepad.png",
         rating: 10,
         reviews: 100,
+        price: 60,
+        inStock: 40,
+        description: "Ergonomic gamepad for a seamless gaming experience.",
+        discountPercent: 12,
         categoryId: 3,
       },
       {
@@ -112,6 +104,10 @@ async function up() {
         imageUrl: "/images/goods/keyboard.png",
         rating: 10,
         reviews: 100,
+        price: 90,
+        inStock: 50,
+        description: "Mechanical keyboard with RGB backlighting.",
+        discountPercent: 10,
         categoryId: 3,
       },
       {
@@ -119,6 +115,10 @@ async function up() {
         imageUrl: "/images/goods/main-gamepad.png",
         rating: 10,
         reviews: 100,
+        price: 70,
+        inStock: 35,
+        description: "Premium quality gamepad with advanced features.",
+        discountPercent: 8,
         categoryId: 3,
       },
       {
@@ -126,6 +126,10 @@ async function up() {
         imageUrl: "/images/goods/monitor.png",
         rating: 10,
         reviews: 100,
+        price: 300,
+        inStock: 15,
+        description: "High-resolution monitor with stunning visuals.",
+        discountPercent: 18,
         categoryId: 4,
       },
       {
@@ -133,85 +137,15 @@ async function up() {
         imageUrl: "/images/goods/shell.png",
         rating: 10,
         reviews: 100,
+        price: 40,
+        inStock: 50,
+        description: "Protective shell case for your gaming console.",
+        discountPercent: 5,
         categoryId: 4,
       },
     ],
   });
-
-  const gamepad1 = await prisma.product.create({
-    data: {
-      name: "Gamepad view 1",
-      imageUrl: "/images/goods/gamepad-view-1.png",
-      rating: 10,
-      reviews: 100,
-      categoryId: 1,
-    },
-  });
-
-  const gamepad2 = await prisma.product.create({
-    data: {
-      name: "Gamepad view 2",
-      imageUrl: "/images/goods/gamepad-view-2.png",
-      rating: 10,
-      reviews: 100,
-      categoryId: 1,
-    },
-  });
-
-  const gamepad3 = await prisma.product.create({
-    data: {
-      name: "Gamepad view 3",
-      imageUrl: "/images/goods/gamepad-view-3.png",
-      rating: 10,
-      reviews: 100,
-      categoryId: 1,
-    },
-  });
-
-  const gamepad4 = await prisma.product.create({
-    data: {
-      name: "Gamepad view 4",
-      imageUrl: "/images/goods/gamepad-view-4.png",
-      rating: 10,
-      reviews: 100,
-      categoryId: 1,
-    },
-  });
-
-  await prisma.productItem.createMany({
-    data: [
-      // Game Pad test1 variations"
-      generateProductItem({ productId: gamepad1.id, color: "red", size: "S", description: 'a;sdfioaogagd'}),
-      generateProductItem({ productId: gamepad1.id, color: "green", size: "L", discountPercent: 0.7, description: 'a;sdfioaogagd'}),
-      generateProductItem({ productId: gamepad1.id, color: "blue", size: "M", discountPercent: 0.5, description: 'a;sdfioaogagd'}),
-
-      // Game Pad test2 variations"
-      generateProductItem({ productId: gamepad2.id, color: "red", size: "S", description: 'a;sdfioaogagd'}),
-      generateProductItem({ productId: gamepad2.id, color: "green", size: "L", discountPercent: 0.7, description: 'a;sdfioaogagd'}),
-      generateProductItem({ productId: gamepad2.id, color: "blue", size: "M", discountPercent: 0.5, description: 'a;sdfioaogagd'}),
-
-      // Game Pad test3 variations"
-      generateProductItem({ productId: gamepad3.id, color: "red", size: "S", description: 'a;sdfioaogagd'}),
-      generateProductItem({ productId: gamepad3.id, color: "green", size: "L", discountPercent: 0.7, description: 'a;sdfioaogagd'}),
-      generateProductItem({ productId: gamepad3.id, color: "blue", size: "M", discountPercent: 0.5, description: 'a;sdfioaogagd'}),
-      // Game Pad test4 variations"
-      generateProductItem({ productId: gamepad4.id, color: "red", size: "S", description: 'a;sdfioaogagd'}),
-      generateProductItem({ productId: gamepad4.id, color: "green", size: "L", discountPercent: 0.7, description: 'a;sdfioaogagd'}),
-      generateProductItem({ productId: gamepad4.id, color: "blue", size: "M", discountPercent: 0.5, description: 'a;sdfioaogagd'}),
-
-      // Game Pad test3"
-      generateProductItem({ productId: 1, description: 'a;sdfioaogagd' }),
-      generateProductItem({ productId: 2, description: 'a;sdfioaogagd' }),
-      generateProductItem({ productId: 3, description: 'a;sdfioaogagd' }),
-      generateProductItem({ productId: 4, description: 'a;sdfioaogagd' }),
-      generateProductItem({ productId: 5, description: 'a;sdfioaogagd' }),
-      generateProductItem({ productId: 6, description: 'a;sdfioaogagd' }),
-      generateProductItem({ productId: 7, description: 'a;sdfioaogagd' }),
-      generateProductItem({ productId: 8, description: 'a;sdfioaogagd' }),
-      generateProductItem({ productId: 9, description: 'a;sdfioaogagd' }),
-      generateProductItem({ productId: 10, description: 'a;sdfioaogagd' }),
-    ],
-  });
+  
 
   await prisma.cart.createMany({
     data: [
@@ -227,14 +161,6 @@ async function up() {
       },
     ],
   });
-
-  await prisma.cartItem.create({
-    data: {
-      productItemId: 1,
-      cartId: 1,
-      quantity: 2,
-    },
-  });
 }
 
 async function down() {
@@ -243,7 +169,6 @@ async function down() {
   await prisma.$executeRaw`TRUNCATE TABLE "Cart" RESTART IDENTITY CASCADE`;
   await prisma.$executeRaw`TRUNCATE TABLE "CartItem" RESTART IDENTITY CASCADE`;
   await prisma.$executeRaw`TRUNCATE TABLE "Product" RESTART IDENTITY CASCADE`;
-  await prisma.$executeRaw`TRUNCATE TABLE "ProductItem" RESTART IDENTITY CASCADE`;
 }
 
 async function main() {
