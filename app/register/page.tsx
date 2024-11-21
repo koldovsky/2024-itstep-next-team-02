@@ -5,7 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import MainImage from "../../public/images/mainImageForLogin.png";
 import GoogleLogo from "../../public/images/GoogleLogo.png";
+import { v4 as uuidv4 } from 'uuid'; 
 import { useState } from 'react';
+
 
 
 const Register = () => {
@@ -42,17 +44,23 @@ const Register = () => {
   };
 
   async function createNewUser() {
+    const token = uuidv4()
     const response = await fetch('/api/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
+        token: token,
         fullName: name,
         email: email,
         password: password
       }),
     });
+    const data = await response.json(); 
+    document.cookie = `token=${token}`;
+    document.cookie = `id=${data.id}`;
+
     if (response.status === 200 ){
       console.log("Added to DB")
       router.push('/'); 

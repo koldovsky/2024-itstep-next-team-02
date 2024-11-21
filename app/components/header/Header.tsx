@@ -1,3 +1,4 @@
+'use client';
 import styles from "./Header.module.css";
 import Image from "next/image";
 import Vector from "../../../public/images/vector.png";
@@ -9,6 +10,7 @@ import PackgImageAcc from "../../../public/images/packgImageAcc.png";
 import CancelImageAcc from "../../../public/images/cancelImageAcc.png";
 import StarImageAcc from "../../../public/images/starImageAcc.png";
 import LogoutImageAcc from "../../../public/images/logoutImageAcc.png";
+import midelwareCheckLogin from "../../../midelware/midelwareCheckLogin"
 import Link from "next/link";
 
 const Header = () => {
@@ -41,7 +43,7 @@ const Header = () => {
               Contact
             </Link>
             <div className={styles.dropdownAccount}>
-              <button className={styles.mainMenuAccButton}>Account</button>
+              <button className={styles.mainMenuAccButton} /*onClick={midelwareCheckLogin}*/>Account</button>
               <div className={styles.accDropdownChild}>
                 <div className={styles.containerForMenu}>
                   <Image src={AccountImageAcc} alt="Your Account" />
