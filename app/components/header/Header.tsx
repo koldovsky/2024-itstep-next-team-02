@@ -1,3 +1,5 @@
+'use client'
+
 import styles from "./Header.module.css";
 import Image from "next/image";
 import Vector from "@/public/images/vector.png";
@@ -10,8 +12,35 @@ import CancelImageAcc from "@/public/images/cancel-image-acc.png";
 import StarImageAcc from "@/public/images/star-image-acc.png";
 import LogoutImageAcc from "@/public/images/log-out-image-acc.png";
 import Link from "next/link";
+import { Api } from "@/services/api-cient";
+import React from "react";
+// import { useDebounce } from "use-debounce";
+
 
 const Header = () => {
+  const [searchQuery, setSearchQuery] = React.useState("");
+  const [products, setProducts] = React.useState<Product[]>([]);
+  React.useEffect(() => {
+    const timeout = setTimeout(async () => {
+      if (searchQuery.trim() !== "") {
+        try {
+          const response = await Api.products.search(searchQuery);
+          setProducts(response);
+        } catch (error) {
+          console.error("Error fetching products:", error);
+        }
+      } else {
+        setProducts([]);
+      }
+    }, 250);
+  
+    return () => clearTimeout(timeout);
+  }, [searchQuery]);
+
+  const onClickItem = () => {
+    setSearchQuery("");
+    setProducts([]);
+  };
   return (
     <>
       <div className={styles.bar}>
@@ -67,8 +96,23 @@ const Header = () => {
             </div>
           </div>
           <div className={styles.flex}>
+          {products.length > 0 && (
+                <div className="absolute w-[260px] bg-white rounded-xl py-2 top-120 shadow-md z-30 mt-40">
+                  {products.map((product) => (
+                    <Link
+                      onClick={onClickItem}
+                      key={product.id}
+                      className="flex items-center gap-3 w-full px-3 py-2 hover:bg-primary/10"
+                      href={`/goods/${product.id}`}
+                    >
+                      <Image width={32} height={32} className="rounded-sm" src={product.imageUrl} alt={product.name} />
+                      <span>{product.name}</span>
+                    </Link>
+                  ))}
+                </div>
+              )}
             <div className={styles.inputContainer}>
-              <input className={styles.inputSearhFooter} type="text" placeholder="What are you looking for?" />
+              <input className={styles.inputSearhFooter} type="text" placeholder="What are you looking for? " value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
               <button type="submit" className={styles.emailButton}>
                 <Image className={`${styles.icons} ${styles.search}`} src={Search} alt="Search" />
               </button>
