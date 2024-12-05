@@ -1,18 +1,18 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
 import { useKeenSlider, KeenSliderPlugin } from "keen-slider/react";
+import Image from "next/image";
 import "keen-slider/keen-slider.min.css";
 import styles from "./Categories.module.css";
-import Image from "next/image";
-import Rectangle from "../../../public/images/upperblockRectangle.png";
-import newLeftArrow from "../../../public/images/new_arrow_left.png";
+import Rectangle from "@/public/images/upper-block-rectangle.png";
+import newLeftArrow from "@/public/images/new-arrow-left.png";
+import newRightArrow from "@/public/images/new-arrow-right.png";
 import CategoriesGoods from "../categoriesGoods/CategoriesGoods";
-import newRightArrow from "../../../public/images/newArrowRight.png";
 
 const AdaptiveHeight: KeenSliderPlugin = (slider) => {
   function updateHeight() {
-    slider.container.style.height =
-      slider.slides[slider.track.details.rel].offsetHeight + "px";
+    slider.container.style.height = slider.slides[slider.track.details.rel].offsetHeight + "px";
   }
   slider.on("created", updateHeight);
   slider.on("slideChanged", updateHeight);
@@ -52,11 +52,7 @@ export default function App() {
             <div className={styles.upperblock}>
               <div className={styles.containerForRectangleText}>
                 <div className={styles.upperblockRectangle}>
-                  <Image
-                    className={styles.rectangle}
-                    src={Rectangle}
-                    alt="Rectangle"
-                  ></Image>
+                  <Image className={styles.rectangle} src={Rectangle} alt="Rectangle"></Image>
                 </div>
                 <div className={styles.upperblockText}>Categories</div>
               </div>
@@ -84,12 +80,7 @@ export default function App() {
                     alt="right"
                     onClick={() => instanceRef.current?.next()}
                     style={{
-                      cursor:
-                        instanceRef.current &&
-                        currentSlide ===
-                          instanceRef.current.track.details.slides.length - 1
-                          ? "not-allowed"
-                          : "pointer",
+                      cursor: instanceRef.current && currentSlide === instanceRef.current.track.details.slides.length - 1 ? "not-allowed" : "pointer",
                     }}
                   />
                 </div>
@@ -98,44 +89,28 @@ export default function App() {
           </div>
         </div>
       </div>
-      
+
       <div className={styles.containForSlider}>
-        <div
-          className={`${styles.navigationWrapper} ${
-            isVisible ? styles.visible : styles.hidden
-          }`}
-        >
+        <div className={`${styles.navigationWrapper} ${isVisible ? styles.visible : styles.hidden}`}>
           <div ref={sliderRef} className={`${styles.keenSlider} keen-slider `}>
-            <div
-              className={`${styles.keenSlider__slide} ${styles.numberSlide1} keen-slider__slide number-slide1`}
-            >
+            <div className={`${styles.keenSlider__slide} ${styles.numberSlide1} keen-slider__slide number-slide1`}>
               <CategoriesGoods />
             </div>
 
-            <div
-              className={`${styles.keenSlider__slide} ${styles.numberSlide2} keen-slider__slide number-slide2`}
-            >
+            <div className={`${styles.keenSlider__slide} ${styles.numberSlide2} keen-slider__slide number-slide2`}>
               <CategoriesGoods />
             </div>
 
-            <div
-              className={`${styles.keenSlider__slide} ${styles.numberSlide3} keen-slider__slide number-slide3`}
-            >
+            <div className={`${styles.keenSlider__slide} ${styles.numberSlide3} keen-slider__slide number-slide3`}>
               <CategoriesGoods />
             </div>
-            <div
-              className={`${styles.keenSlider__slide} ${styles.numberSlide4} keen-slider__slide number-slide4`}
-            >
+            <div className={`${styles.keenSlider__slide} ${styles.numberSlide4} keen-slider__slide number-slide4`}>
               <CategoriesGoods />
             </div>
-            <div
-              className={`${styles.keenSlider__slide} ${styles.numberSlide5} keen-slider__slide number-slide5`}
-            >
+            <div className={`${styles.keenSlider__slide} ${styles.numberSlide5} keen-slider__slide number-slide5`}>
               <CategoriesGoods />
             </div>
-            <div
-              className={`${styles.keenSlider__slide} ${styles.numberSlide6} keen-slider__slide number-slide6`}
-            >
+            <div className={`${styles.keenSlider__slide} ${styles.numberSlide6} keen-slider__slide number-slide6`}>
               <CategoriesGoods />
             </div>
           </div>
@@ -143,22 +118,19 @@ export default function App() {
             <>
               <Arrow
                 left
-                onClick={(e: React.MouseEvent<SVGElement>) =>{
-                  e.stopPropagation()
-                  instanceRef.current?.prev()
+                onClick={(e: React.MouseEvent<SVGElement>) => {
+                  e.stopPropagation();
+                  instanceRef.current?.prev();
                 }}
                 disabled={currentSlide === 0}
               />
 
               <Arrow
                 onClick={(e: React.MouseEvent<SVGElement>) => {
-                  e.stopPropagation()
-                  instanceRef.current?.next()
+                  e.stopPropagation();
+                  instanceRef.current?.next();
                 }}
-                disabled={
-                  currentSlide ===
-                  instanceRef.current.track.details.slides.length - 1
-                }
+                disabled={currentSlide === instanceRef.current.track.details.slides.length - 1}
               />
             </>
           )}
@@ -178,9 +150,7 @@ const Arrow: React.FC<ArrowProps> = ({ disabled, left, onClick }) => {
   return (
     <svg
       onClick={disabled ? undefined : onClick}
-      className={`${styles.arrow} ${
-        left ? styles.arrowLeft : styles.arrowRight
-      } ${disabled ? styles["arrow--disabled"] : ""}`}
+      className={`${styles.arrow} ${left ? styles.arrowLeft : styles.arrowRight} ${disabled ? styles["arrow--disabled"] : ""}`}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
     >

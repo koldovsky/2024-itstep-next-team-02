@@ -3,11 +3,10 @@ import styles from "./page.module.css";
 import { useRouter } from 'next/navigation';
 import Image from "next/image";
 import Link from "next/link";
-import MainImage from "../../public/images/mainImageForLogin.png";
-import GoogleLogo from "../../public/images/GoogleLogo.png";
+import MainImage from "../../public/images/main-image-for-login.png";
+import GoogleLogo from "../../public/images/google-logo.png";
 import { v4 as uuidv4 } from 'uuid'; 
 import { useState } from 'react';
-
 
 
 const Register = () => {
@@ -64,7 +63,6 @@ const Register = () => {
     if (response.status === 200 ){
       console.log("Added to DB")
       router.push('/'); 
-      // FIXME: КОЛИ ЮЗЕР ЗАЛОГІНИВСЯ АБО ЗАРЕГАВСЯ, ДОБАВЛЯТИ ТОКЕН В БД ТА СОБІ В КУКІСИ, ТА СТВОРИТИ МІД ВЕІР, ЯКИЙ БУДЕ  ПРОВАЛЮВАТИ ЯКЩО ЮЗЕР НЕ ЛОГІНЕНИЙ https://stackoverflow.com/questions/74573751/how-do-i-check-if-a-user-is-logged-in-on-every-request-in-next-js 
     }
     if (response.status === 500 ){
       console.log("not Added to DB")

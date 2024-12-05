@@ -2,44 +2,18 @@ import { Prisma } from "@prisma/client";
 import { prisma } from "./prisma-client";
 import { hashSync } from "bcrypt";
 
-const randomNumber = (min: number, max: number) => {
-  return Math.floor(Math.random() * (max - min) * 10 + min * 10) / 10;
-};
-
-const generateProductItem = ({
-  productId,
-  size,
-  color,
-  discountPercent,
-  description,
-}: {
-  productId: number;
-  size?: "S" | "M" | "L";
-  color?: "red" | "blue" | "green";
-  discountPercent?: number;
-  description: string;
-}) => {
-  return {
-    productId,
-    price: randomNumber(100, 600),
-    size,
-    color,
-    inStock: randomNumber(10, 100),
-    discountPercent,
-    description,
-  } as Prisma.ProductItemUncheckedCreateInput;
-};
-
 async function up() {
   await prisma.user.createMany({
     data: [
       {
+        token: "11111",
         fullName: "Test Admin",
         email: "user@gmail.com",
         password: hashSync("111111", 10),
         role: "USER",
       },
       {
+        token: "11111",
         fullName: "Test User",
         email: "admin@@gmail.com",
         password: hashSync("111111", 10),
@@ -71,180 +45,107 @@ async function up() {
   await prisma.product.createMany({
     data: [
       {
-        name: "Gaming Headset",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
+        name: "Bag",
+        imageUrl: "/images/goods/bag.png",
         rating: 10,
         reviews: 100,
+        price: 50,
+        inStock: 30,
+        description: "Stylish and spacious bag for everyday use.",
+        discountPercent: 10,
         categoryId: 2,
       },
       {
-        name: "Mechanical Keyboard",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
-        categoryId: 2,
+        name: "Chair",
+        imageUrl: "/images/goods/chair.png",
         rating: 10,
         reviews: 100,
-      },
-      {
-        name: "Gaming Mouse",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
-        rating: 10,
-        reviews: 100,
+        price: 120,
+        inStock: 20,
+        description: "Comfortable and ergonomic chair for your home or office.",
+        discountPercent: 15,
         categoryId: 2,
       },
       {
-        name: "Gaming Chair",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
+        name: "Coat",
+        imageUrl: "/images/goods/coat.png",
         rating: 10,
         reviews: 100,
+        price: 200,
+        inStock: 10,
+        description: "Warm and stylish coat, perfect for winter.",
+        discountPercent: 20,
+        categoryId: 2,
+      },
+      {
+        name: "Cooler",
+        imageUrl: "/images/goods/cooler.png",
+        rating: 10,
+        reviews: 100,
+        price: 80,
+        inStock: 25,
+        description: "High-performance cooler for your PC.",
+        discountPercent: 5,
         categoryId: 3,
       },
       {
-        name: "VR Headset",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
+        name: "Gamepad",
+        imageUrl: "/images/goods/gamepad.png",
         rating: 10,
         reviews: 100,
+        price: 60,
+        inStock: 40,
+        description: "Ergonomic gamepad for a seamless gaming experience.",
+        discountPercent: 12,
         categoryId: 3,
       },
       {
-        name: "Gaming Console",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
+        name: "Keyboard",
+        imageUrl: "/images/goods/keyboard.png",
         rating: 10,
         reviews: 100,
+        price: 90,
+        inStock: 50,
+        description: "Mechanical keyboard with RGB backlighting.",
+        discountPercent: 10,
         categoryId: 3,
       },
       {
-        name: "Controller",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
+        name: "Main Gamepad",
+        imageUrl: "/images/goods/main-gamepad.png",
         rating: 10,
         reviews: 100,
+        price: 70,
+        inStock: 35,
+        description: "Premium quality gamepad with advanced features.",
+        discountPercent: 8,
         categoryId: 3,
       },
       {
-        name: "Gaming Monitor",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
+        name: "Monitor",
+        imageUrl: "/images/goods/monitor.png",
         rating: 10,
         reviews: 100,
-        categoryId: 3,
-      },
-      {
-        name: "Graphics Card",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
-        rating: 10,
-        reviews: 100,
+        price: 300,
+        inStock: 15,
+        description: "High-resolution monitor with stunning visuals.",
+        discountPercent: 18,
         categoryId: 4,
       },
       {
-        name: "Processor",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
+        name: "Shell",
+        imageUrl: "/images/goods/shell.png",
         rating: 10,
         reviews: 100,
+        price: 40,
+        inStock: 50,
+        description: "Protective shell case for your gaming console.",
+        discountPercent: 5,
         categoryId: 4,
-      },
-      {
-        name: "RAM",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
-        rating: 10,
-        reviews: 100,
-        categoryId: 4,
-      },
-      {
-        name: "Hard Drive",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
-        rating: 10,
-        reviews: 100,
-        categoryId: 4,
-      },
-      {
-        name: "Gaming Laptop",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
-        rating: 10,
-        reviews: 100,
-        categoryId: 5,
-      },
-      {
-        name: "Gaming PC",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
-        rating: 10,
-        reviews: 100,
-        categoryId: 5,
-      },
-      {
-        name: "Cooling System",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
-        rating: 10,
-        reviews: 100,
-        categoryId: 5,
-      },
-      {
-        name: "Power Supply Unit",
-        imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
-        rating: 10,
-        reviews: 100,
-        categoryId: 5,
       },
     ],
   });
-
-  const gamepad1 = await prisma.product.create({
-    data: {
-      name: "Game Pad test1",
-      imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
-      rating: 10,
-      reviews: 100,
-      categoryId: 1,
-    },
-  });
-
-  const gamepad2 = await prisma.product.create({
-    data: {
-      name: "Game Pad test2",
-      imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
-      rating: 10,
-      reviews: 100,
-      categoryId: 1,
-    },
-  });
-
-  const gamepad3 = await prisma.product.create({
-    data: {
-      name: "Game Pad test3",
-      imageUrl: "https://hotline.ua/img/tx/238/238399127_s265.jpg",
-      rating: 10,
-      reviews: 100,
-      categoryId: 1,
-    },
-  });
-
-  await prisma.productItem.createMany({
-    data: [
-      // Game Pad test1 variations"
-      generateProductItem({ productId: gamepad1.id, color: "red", size: "S", description: 'a;sdfioaogagd'}),
-      generateProductItem({ productId: gamepad1.id, color: "green", size: "L", discountPercent: 0.7, description: 'a;sdfioaogagd'}),
-      generateProductItem({ productId: gamepad1.id, color: "blue", size: "M", discountPercent: 0.5, description: 'a;sdfioaogagd'}),
-
-      // Game Pad test2 variations"
-      generateProductItem({ productId: gamepad2.id, color: "red", size: "S", description: 'a;sdfioaogagd'}),
-      generateProductItem({ productId: gamepad2.id, color: "green", size: "L", discountPercent: 0.7, description: 'a;sdfioaogagd'}),
-      generateProductItem({ productId: gamepad2.id, color: "blue", size: "M", discountPercent: 0.5, description: 'a;sdfioaogagd'}),
-
-      // Game Pad test3 variations"
-      generateProductItem({ productId: gamepad3.id, color: "red", size: "S", description: 'a;sdfioaogagd'}),
-      generateProductItem({ productId: gamepad3.id, color: "green", size: "L", discountPercent: 0.7, description: 'a;sdfioaogagd'}),
-      generateProductItem({ productId: gamepad3.id, color: "blue", size: "M", discountPercent: 0.5, description: 'a;sdfioaogagd'}),
-
-      // Game Pad test3"
-      generateProductItem({ productId: 1, description: 'a;sdfioaogagd' }),
-      generateProductItem({ productId: 2, description: 'a;sdfioaogagd' }),
-      generateProductItem({ productId: 3, description: 'a;sdfioaogagd' }),
-      generateProductItem({ productId: 4, description: 'a;sdfioaogagd' }),
-      generateProductItem({ productId: 5, description: 'a;sdfioaogagd' }),
-      generateProductItem({ productId: 6, description: 'a;sdfioaogagd' }),
-      generateProductItem({ productId: 7, description: 'a;sdfioaogagd' }),
-      generateProductItem({ productId: 8, description: 'a;sdfioaogagd' }),
-      generateProductItem({ productId: 9, description: 'a;sdfioaogagd' }),
-      generateProductItem({ productId: 10, description: 'a;sdfioaogagd' }),
-    ],
-  });
+  
 
   await prisma.cart.createMany({
     data: [
@@ -260,14 +161,6 @@ async function up() {
       },
     ],
   });
-
-  await prisma.cartItem.create({
-    data: {
-      productItemId: 1,
-      cartId: 1,
-      quantity: 2,
-    },
-  });
 }
 
 async function down() {
@@ -276,7 +169,6 @@ async function down() {
   await prisma.$executeRaw`TRUNCATE TABLE "Cart" RESTART IDENTITY CASCADE`;
   await prisma.$executeRaw`TRUNCATE TABLE "CartItem" RESTART IDENTITY CASCADE`;
   await prisma.$executeRaw`TRUNCATE TABLE "Product" RESTART IDENTITY CASCADE`;
-  await prisma.$executeRaw`TRUNCATE TABLE "ProductItem" RESTART IDENTITY CASCADE`;
 }
 
 async function main() {

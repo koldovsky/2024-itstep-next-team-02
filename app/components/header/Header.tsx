@@ -4,18 +4,18 @@ import Image from "next/image";
 import Vector from "../../../public/images/vector.png";
 import Heart from "../../../public/images/heart.png";
 import Cart from "../../../public/images/cart.png";
-import Search from "../../../public/images/search.png";
-import AccountImageAcc from "../../../public/images/AccauntImageAcc.png";
-import PackgImageAcc from "../../../public/images/packgImageAcc.png";
-import CancelImageAcc from "../../../public/images/cancelImageAcc.png";
-import StarImageAcc from "../../../public/images/starImageAcc.png";
-import LogoutImageAcc from "../../../public/images/logoutImageAcc.png";
-// import midelwareCheckLogin from "../../../midelware/midelwareCheckLogin"
+import Search from "@/public/images/search.png";
+import AccountImageAcc from "@/public/images/account-image.png";
+import PackgImageAcc from "@/public/images/packg-image-acc.png";
+import CancelImageAcc from "@/public/images/cancel-image-acc.png";
+import StarImageAcc from "@/public/images/star-image-acc.png";
+import LogoutImageAcc from "@/public/images/log-out-image-acc.png";
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from "react";
 import { usePathname } from 'next/navigation';
-import { NONAME } from "dns";
+import { Api } from "@/services/api-cient";
+import React from "react";
 
 function getCookie(name: string): number {
   const value = `; ${document.cookie}`;
@@ -78,6 +78,8 @@ const Header = () => {
   const pathname = usePathname();
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [searchQuery, setSearchQuery] = React.useState("");
+  const [products, setProducts] = React.useState<Product[]>([]);
 
   const validateUserToken = async () => {
     const userId = getCookie("id");
@@ -109,6 +111,28 @@ const Header = () => {
       validateUserToken();
     }, [pathname]);
   }
+
+  React.useEffect(() => {
+    const timeout = setTimeout(async () => {
+      if (searchQuery.trim() !== "") {
+        try {
+          const response = await Api.products.search(searchQuery);
+          setProducts(response);
+        } catch (error) {
+          console.error("Error fetching products:", error);
+        }
+      } else {
+        setProducts([]);
+      }
+    }, 250);
+  
+    return () => clearTimeout(timeout);
+  }, [searchQuery]);
+
+  const onClickItem = () => {
+    setSearchQuery("");
+    setProducts([]);
+  };
 
   return (
     <>
@@ -167,8 +191,23 @@ const Header = () => {
             </div>
           </div>
           <div className={styles.flex}>
-            <div className={styles.inputContainer}>
-              <input className={styles.inputSearhFooter} type="text" placeholder="What are you looking for?" />
+            {products.length > 0 && (
+              <div className="absolute w-[260px] bg-white rounded-xl py-2 top-120 shadow-md z-30 mt-40">
+                {products.map((product) => (
+                  <Link
+                    onClick={onClickItem}
+                    key={product.id}
+                    className="flex items-center gap-3 w-full px-3 py-2 hover:bg-primary/10"
+                    href={`/goods/${product.id}`}
+                  >
+                    <Image width={32} height={32} className="rounded-sm" src={product.imageUrl} alt={product.name} />
+                    <span>{product.name}</span>
+                  </Link>
+                ))}
+              </div>
+            )}
+         <div className={styles.inputContainer}>
+              <input className={styles.inputSearhFooter} type="text" placeholder="What are you looking for? " value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
               <button type="submit" className={styles.emailButton}>
                 <Image className={`${styles.icons} ${styles.search}`} src={Search} alt="Search" />
               </button>

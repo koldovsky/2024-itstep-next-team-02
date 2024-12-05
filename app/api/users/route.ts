@@ -19,8 +19,8 @@ export async function POST(req: NextRequest) {
   console.log('token:', data.token);
 
   const user = await prisma.user.create({
-    data
+    data,
   });
 
-  return NextResponse.json(user)
+  return NextResponse.json(user);
 }

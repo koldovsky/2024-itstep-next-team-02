@@ -1,11 +1,10 @@
-"use client";
-
+'use client'
 import React, { useEffect, useState } from "react";
 import styles from "./FlashSale.module.css";
 import Image from "next/image";
-import Rectangle from "../../../public/images/upperblockRectangle.png"
-import newLeftArrow from "../../../public/images/new_arrow_left.png";
-import newRightArrow from "../../../public/images/newArrowRight.png";
+import Rectangle from "@/public/images/upper-block-rectangle.png";
+import newLeftArrow from "@/public/images/new-arrow-left.png";
+import newRightArrow from "@/public/images/new-arrow-right.png";
 import { useKeenSlider, KeenSliderPlugin } from "keen-slider/react";
 import FlashSaleGoods from "../../components/flashSalesGoods/FlashSaleGoods";
 import "keen-slider/keen-slider.min.css";
@@ -20,17 +19,24 @@ const AdaptiveHeight: KeenSliderPlugin = (slider) => {
 };
 
 export default function App() {
-  const [timer] = useState<{
-    days: number;
-    hours: number;
-    minutes: number;
-    seconds: number;
-  }>({
-    days: 3,
-    hours: 23,
-    minutes: 19,
-    seconds: 56,
-  });
+  const calculateRemainingTime = () => {
+    const targetTime = new Date("2024-11-16T00:00:00");
+    const now = new Date();
+    const timeDiff = targetTime.getTime() - now.getTime();
+
+    if (timeDiff <= 0) {
+      return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    }
+
+    const days = Math.floor(timeDiff / (1000 * 3600 * 24));
+    const hours = Math.floor((timeDiff % (1000 * 3600 * 24)) / (1000 * 3600));
+    const minutes = Math.floor((timeDiff % (1000 * 3600)) / (1000 * 60));
+    const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+    return { days, hours, minutes, seconds };
+  };
+
+  const [timer, setTimer] = useState(calculateRemainingTime);
   const [currentSlide, setCurrentSlide] = React.useState(0);
   const [loaded, setLoaded] = useState(false);
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>(
@@ -47,6 +53,14 @@ export default function App() {
   );
 
   const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const timerId = setInterval(() => {
+      setTimer(calculateRemainingTime);
+    }, 1000);
+
+    return () => clearInterval(timerId);
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -68,7 +82,7 @@ export default function App() {
                     className={styles.rectangle}
                     src={Rectangle}
                     alt="Rectangle"
-                  ></Image>
+                  />
                 </div>
                 <div className={styles.upperblockText}>Today&apos;s</div>
               </div>
@@ -133,7 +147,7 @@ export default function App() {
             >
               <FlashSaleGoods />
             </div>
-            
+
             <div
               className={`${styles.keenSlider__slide} ${styles.numberSlide2} keen-slider__slide number-slide2`}
             >
@@ -159,7 +173,7 @@ export default function App() {
               className={`${styles.keenSlider__slide} ${styles.numberSlide6} keen-slider__slide number-slide6`}
             >
               <FlashSaleGoods />
-            </div> 
+            </div>
           </div>
           {loaded && instanceRef.current && (
             <>

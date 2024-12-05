@@ -2,9 +2,7 @@
 
 import styles from './NewArrival.module.css'
 import Image from "next/image";
-import Rectangle from "../../../public/images/upperblockRectangle.png"
-
-
+import Rectangle from "@/public/images/upper-block-rectangle.png"
 
 const NewArrival = () => {
     return (
