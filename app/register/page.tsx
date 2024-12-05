@@ -35,9 +35,9 @@ const Register = () => {
       return;
     }
 
-    console.log('Name:', name);
-    console.log('Email:', email);
-    console.log('Password:', password);
+    // console.log('Name:', name);
+    // console.log('Email:', email);
+    // console.log('Password:', password);
 
     await createNewUser();
     

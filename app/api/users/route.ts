@@ -12,6 +12,11 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   const data = await req.json();
   data.password = hashSync(data.password, 10);
+  // console.log(data)
+  console.log('Name:', data.fullName);
+  console.log('Email:', data.email);
+  console.log('Password:', data.password);
+  console.log('token:', data.token);
 
   const user = await prisma.user.create({
     data

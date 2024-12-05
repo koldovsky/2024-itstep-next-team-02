@@ -19,6 +19,8 @@
     "@remixicon/react": "^4.5.0",
     "@types/bcrypt": "^5.0.2",
     "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.7",
+    "jsonwebtoken": "^9.0.2",
     "keen-slider": "^6.8.6",
     "next": "14.2.15",
     "react": "^18",
@@ -27,6 +29,8 @@
     "uuid": "^11.0.3"
   },
   "devDependencies": {
+    "@types/dotenv": "^6.1.1",
+    "@types/jsonwebtoken": "^9.0.7",
     "@types/node": "^20.17.6",
     "@types/react": "^18",
     "@types/react-dom": "^18",
