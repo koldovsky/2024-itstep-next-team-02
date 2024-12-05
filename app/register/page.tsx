@@ -1,11 +1,12 @@
 'use client'
 import styles from "./page.module.css";
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
 import Image from "next/image";
 import Link from "next/link";
-import MainImage from "@/public/images/main-image-for-login.png";
-import GoogleLogo from "@/public/images/google-logo.png";
+import MainImage from "../../public/images/main-image-for-login.png";
+import GoogleLogo from "../../public/images/google-logo.png";
+import { v4 as uuidv4 } from 'uuid'; 
+import { useState } from 'react';
 
 
 const Register = () => {
@@ -33,30 +34,35 @@ const Register = () => {
       return;
     }
 
-    console.log('Name:', name);
-    console.log('Email:', email);
-    console.log('Password:', password);
+    // console.log('Name:', name);
+    // console.log('Email:', email);
+    // console.log('Password:', password);
 
     await createNewUser();
     
   };
 
   async function createNewUser() {
+    const token = uuidv4()
     const response = await fetch('/api/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
+        token: token,
         fullName: name,
         email: email,
         password: password
       }),
     });
+    const data = await response.json(); 
+    document.cookie = `token=${token}`;
+    document.cookie = `id=${data.id}`;
+
     if (response.status === 200 ){
       console.log("Added to DB")
       router.push('/'); 
-      // FIXME: КОЛИ ЮЗЕР ЗАЛОГІНИВСЯ АБО ЗАРЕГАВСЯ, ДОБАВЛЯТИ ТОКЕН В БД ТА СОБІ В КУКІСИ, ТА СТВОРИТИ МІД ВЕІР, ЯКИЙ БУДЕ  ПРОВАЛЮВАТИ ЯКЩО ЮЗЕР НЕ ЛОГІНЕНИЙ https://stackoverflow.com/questions/74573751/how-do-i-check-if-a-user-is-logged-in-on-every-request-in-next-js 
     }
     if (response.status === 500 ){
       console.log("not Added to DB")

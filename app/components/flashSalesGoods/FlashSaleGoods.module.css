@@ -210,3 +210,16 @@
     height: 350px;
   }
   
+
+  .timer {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-left: 50px;
+  }
+  
+  .timerPart {
+    font-weight: bold;
+  }
